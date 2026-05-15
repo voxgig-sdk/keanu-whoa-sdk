@@ -1,0 +1,175 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Keanu Whoa API",
+    "description": "A free JSON API for every 'whoa' said by actor Keanu Reeves in his movies.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://whoa.onrender.com/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://whoa.onrender.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/whoas": {
+      "get": {
+        "summary": "Get all whoas",
+        "description": "Returns a list of all 'whoa' instances said by Keanu Reeves in his movies.",
+        "operationId": "getAllWhoas",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Whoa"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/whoas/random": {
+      "get": {
+        "summary": "Get a random whoa",
+        "description": "Returns a random 'whoa' instance from Keanu Reeves' movies.",
+        "operationId": "getRandomWhoa",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Whoa"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/whoas/{id}": {
+      "get": {
+        "summary": "Get whoa by ID",
+        "description": "Returns a specific 'whoa' instance by its ID.",
+        "operationId": "getWhoaById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whoa instance",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Whoa"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Whoa not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Whoa": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the whoa instance"
+          },
+          "movie": {
+            "type": "string",
+            "description": "Title of the movie where the whoa was said"
+          },
+          "year": {
+            "type": "integer",
+            "description": "Year the movie was released"
+          },
+          "director": {
+            "type": "string",
+            "description": "Director of the movie"
+          },
+          "character": {
+            "type": "string",
+            "description": "Character name that Keanu Reeves played"
+          },
+          "movie_duration": {
+            "type": "string",
+            "description": "Total duration of the movie"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "Timestamp when the whoa occurs in the movie"
+          },
+          "full_line": {
+            "type": "string",
+            "description": "The full line of dialogue containing the whoa"
+          },
+          "current_whoa_in_movie": {
+            "type": "integer",
+            "description": "The number of this whoa within the movie"
+          },
+          "total_whoas_in_movie": {
+            "type": "integer",
+            "description": "Total number of whoas in the movie"
+          },
+          "whoa_in_movie": {
+            "type": "string",
+            "description": "Representation of whoa count in the movie (e.g., '1 of 5')"
+          },
+          "video": {
+            "type": "object",
+            "properties": {
+              "1080p": {
+                "type": "string",
+                "description": "URL to 1080p video clip"
+              },
+              "720p": {
+                "type": "string",
+                "description": "URL to 720p video clip"
+              },
+              "480p": {
+                "type": "string",
+                "description": "URL to 480p video clip"
+              },
+              "360p": {
+                "type": "string",
+                "description": "URL to 360p video clip"
+              }
+            }
+          },
+          "audio": {
+            "type": "string",
+            "description": "URL to audio clip of the whoa"
+          },
+          "poster": {
+            "type": "string",
+            "description": "URL to movie poster image"
+          }
+        }
+      }
+    }
+  }
+}

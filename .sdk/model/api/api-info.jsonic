@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://whoa.onrender.com/"
+      }
+      description: "A free JSON API for every 'whoa' said by actor Keanu Reeves in his movies."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://whoa.onrender.com"
+        }
+      ]
+      title: "Keanu Whoa API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

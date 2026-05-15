@@ -1,0 +1,40 @@
+# BasicWhoaFlow
+
+main: kit: flow: BasicWhoaFlow:
+{
+  entity: "whoa",
+  kind: "basic",
+  name: "BasicWhoaFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "whoa_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "whoa_ref01",
+        srcdatavar: "whoa_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-whoa_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWhoaFlow"
+}

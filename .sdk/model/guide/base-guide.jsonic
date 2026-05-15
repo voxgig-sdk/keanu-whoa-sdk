@@ -1,0 +1,21 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: whoa: {
+    path: "/whoas": {
+      op: list: method: *GET
+    }
+    path: "/whoas/random": {
+      action: "random": {}
+      op: load: method: *GET
+    }
+    path: "/whoas/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+}

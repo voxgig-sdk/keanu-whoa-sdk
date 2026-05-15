@@ -1,0 +1,155 @@
+# Entity: whoa
+
+main: kit: entity: whoa: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "audio"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "character"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "current_whoa_in_movie"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "director"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "full_line"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "movie"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "movie_duration"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "poster"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "timestamp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "total_whoas_in_movie"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "video"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "whoa_in_movie"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "year"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "whoa"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/whoas"
+          parts: [
+            "whoas"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/whoas/{id}"
+          parts: [
+            "whoas"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/whoas/random"
+          parts: [
+            "whoas"
+            "random"
+          ]
+          select: {
+            "$action": "random"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

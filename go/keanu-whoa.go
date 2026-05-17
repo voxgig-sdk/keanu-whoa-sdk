@@ -1,10 +1,10 @@
 package voxgigkeanuwhoasdk
 
 import (
-	"github.com/voxgig-sdk/keanu-whoa-sdk/core"
-	"github.com/voxgig-sdk/keanu-whoa-sdk/entity"
-	"github.com/voxgig-sdk/keanu-whoa-sdk/feature"
-	_ "github.com/voxgig-sdk/keanu-whoa-sdk/utility"
+	"github.com/voxgig-sdk/keanu-whoa-sdk/go/core"
+	"github.com/voxgig-sdk/keanu-whoa-sdk/go/entity"
+	"github.com/voxgig-sdk/keanu-whoa-sdk/go/feature"
+	_ "github.com/voxgig-sdk/keanu-whoa-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

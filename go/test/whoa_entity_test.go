@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/keanu-whoa-sdk"
-	"github.com/voxgig-sdk/keanu-whoa-sdk/core"
+	sdk "github.com/voxgig-sdk/keanu-whoa-sdk/go"
+	"github.com/voxgig-sdk/keanu-whoa-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/keanu-whoa-sdk/go/utility/struct"
 )
 
 func TestWhoaEntity(t *testing.T) {

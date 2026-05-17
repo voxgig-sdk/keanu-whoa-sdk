@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/keanu-whoa-sdk/core"
+	"github.com/voxgig-sdk/keanu-whoa-sdk/go/core"
 )
 
 type BaseFeature struct {

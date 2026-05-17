@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/keanu-whoa-sdk"
-	"github.com/voxgig-sdk/keanu-whoa-sdk/core"
+	sdk "github.com/voxgig-sdk/keanu-whoa-sdk/go"
+	"github.com/voxgig-sdk/keanu-whoa-sdk/go/core"
 )
 
 func TestWhoaDirect(t *testing.T) {

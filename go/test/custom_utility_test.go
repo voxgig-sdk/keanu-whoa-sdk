@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/keanu-whoa-sdk"
+	sdk "github.com/voxgig-sdk/keanu-whoa-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

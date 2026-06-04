@@ -102,7 +102,6 @@ function whoa_basic_setup(extra)
     ["KEANUWHOA_TEST_WHOA_ENTID"] = idmap,
     ["KEANUWHOA_TEST_LIVE"] = "FALSE",
     ["KEANUWHOA_TEST_EXPLAIN"] = "FALSE",
-    ["KEANUWHOA_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -114,7 +113,6 @@ function whoa_basic_setup(extra)
   if env["KEANUWHOA_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["KEANUWHOA_APIKEY"],
       },
       extra or {},
     })

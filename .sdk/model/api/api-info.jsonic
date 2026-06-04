@@ -16,8 +16,26 @@ main: {
       ]
       title: "Keanu Whoa API"
       version: "1.0.0"
+      tagline: "Fetch random \"whoa\" lines spoken by Keanu Reeves across his filmography, optionally filtered by movie"
+      homepage: "https://whoa.onrender.com"
+      docs_url: "https://whoa.onrender.com"
+      license_short: "No license specified by the API."
+      license_md: `- The API does not publish an explicit licence in the catalogued documentation.
+- Treat the audio/quote data as the work of its original rights holders and use responsibly.
+- Attribution to the upstream Keanu Reeves Whoa API project is courteous when redistributing.`
+      about_md: `The Keanu Whoa API is a free JSON service that returns lines where Keanu Reeves says "whoa" across his film roles. It is hosted on [Render](https://whoa.onrender.com) and listed in the [FreePublicAPIs catalogue](https://freepublicapis.com/keanu-whoa-api).
+
+What you get from the API:
+
+- A random "whoa" via \`GET /whoas/random\`.
+- Multiple random "whoa" entries via \`GET /whoas/random?results=N\`.
+- A "whoa" filtered to a specific film via \`GET /whoas/random?movie=<title>\` (for example, \`?movie=the%20matrix\`).
+
+Operational notes: CORS is enabled on all endpoints and no authentication is required. The catalogue reports no documented rate limits, and uptime checks have measured 100% reliability with average response times in the 290-416ms range.`
+      entity_desc: {
+        whoa: "A single \"whoa\" utterance by Keanu Reeves, served from the `/whoas/random` endpoint and optionally filtered by `movie` or batched via the `results` query parameter."
+      }
+      auth: false
     }
   }
-}
-
 }

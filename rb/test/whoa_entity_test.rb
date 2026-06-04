@@ -93,7 +93,6 @@ def whoa_basic_setup(extra)
     "KEANUWHOA_TEST_WHOA_ENTID" => idmap,
     "KEANUWHOA_TEST_LIVE" => "FALSE",
     "KEANUWHOA_TEST_EXPLAIN" => "FALSE",
-    "KEANUWHOA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -105,7 +104,6 @@ def whoa_basic_setup(extra)
   if env["KEANUWHOA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["KEANUWHOA_APIKEY"],
       },
       extra || {},
     ])

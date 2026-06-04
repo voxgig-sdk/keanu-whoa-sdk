@@ -117,14 +117,12 @@ function whoa_direct_setup(mockres)
   local env = runner.env_override({
     ["KEANUWHOA_TEST_WHOA_ENTID"] = {},
     ["KEANUWHOA_TEST_LIVE"] = "FALSE",
-    ["KEANUWHOA_APIKEY"] = "NONE",
   })
 
   local live = env["KEANUWHOA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["KEANUWHOA_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

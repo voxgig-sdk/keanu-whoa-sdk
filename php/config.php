@@ -20,9 +20,6 @@ class KeanuWhoaConfig
             ],
             "options" => [
                 "base" => "https://whoa.onrender.com",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

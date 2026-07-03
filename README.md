@@ -1,20 +1,8 @@
 # KeanuWhoa SDK
 
-Fetch random "whoa" lines spoken by Keanu Reeves across his filmography, optionally filtered by movie
+Keanu Whoa API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Keanu Whoa API
-
-The Keanu Whoa API is a free JSON service that returns lines where Keanu Reeves says "whoa" across his film roles. It is hosted on [Render](https://whoa.onrender.com) and listed in the [FreePublicAPIs catalogue](https://freepublicapis.com/keanu-whoa-api).
-
-What you get from the API:
-
-- A random "whoa" via `GET /whoas/random`.
-- Multiple random "whoa" entries via `GET /whoas/random?results=N`.
-- A "whoa" filtered to a specific film via `GET /whoas/random?movie=<title>` (for example, `?movie=the%20matrix`).
-
-Operational notes: CORS is enabled on all endpoints and no authentication is required. The catalogue reports no documented rate limits, and uptime checks have measured 100% reliability with average response times in the 290-416ms range.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install keanu-whoa-sdk
 luarocks install keanu-whoa-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { KeanuWhoaSDK } from 'keanu-whoa'
 
-const client = new KeanuWhoaSDK({})
+const client = new KeanuWhoaSDK({
+  apikey: process.env.KEANU-WHOA_APIKEY,
+})
 
 // List all whoas
 const whoas = await client.Whoa().list()
+console.log(whoas.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Whoa** | A single "whoa" utterance by Keanu Reeves, served from the `/whoas/random` endpoint and optionally filtered by `movie` or batched via the `results` query parameter. | `/whoas` |
+| **Whoa** |  | `/whoas` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,17 +100,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from keanuwhoa_sdk import KeanuWhoaSDK
 
-client = KeanuWhoaSDK({})
+client = KeanuWhoaSDK({
+    "apikey": os.environ.get("KEANU-WHOA_APIKEY"),
+})
 
 # List all whoas
-whoas, err = client.Whoa(None).list(None, None)
+whoas, err = client.Whoa().list()
+print(whoas)
 
 # Load a specific whoa
-whoa, err = client.Whoa(None).load(
-    {"id": "example_id"}, None
-)
+whoa, err = client.Whoa().load({"id": "example_id"})
+print(whoa)
 ```
 
 ### PHP
@@ -129,15 +122,17 @@ whoa, err = client.Whoa(None).load(
 <?php
 require_once 'keanuwhoa_sdk.php';
 
-$client = new KeanuWhoaSDK([]);
+$client = new KeanuWhoaSDK([
+    "apikey" => getenv("KEANU-WHOA_APIKEY"),
+]);
 
 // List all whoas
-[$whoas, $err] = $client->Whoa(null)->list(null, null);
+[$whoas, $err] = $client->Whoa()->list();
+print_r($whoas);
 
 // Load a specific whoa
-[$whoa, $err] = $client->Whoa(null)->load(
-    ["id" => "example_id"], null
-);
+[$whoa, $err] = $client->Whoa()->load(["id" => "example_id"]);
+print_r($whoa);
 ```
 
 ### Golang
@@ -145,10 +140,13 @@ $client = new KeanuWhoaSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/keanu-whoa-sdk/go"
 
-client := sdk.NewKeanuWhoaSDK(map[string]any{})
+client := sdk.NewKeanuWhoaSDK(map[string]any{
+    "apikey": os.Getenv("KEANU-WHOA_APIKEY"),
+})
 
 // List all whoas
 whoas, err := client.Whoa(nil).List(nil, nil)
+fmt.Println(whoas)
 ```
 
 ### Ruby
@@ -156,15 +154,17 @@ whoas, err := client.Whoa(nil).List(nil, nil)
 ```ruby
 require_relative "KeanuWhoa_sdk"
 
-client = KeanuWhoaSDK.new({})
+client = KeanuWhoaSDK.new({
+  "apikey" => ENV["KEANU-WHOA_APIKEY"],
+})
 
 # List all whoas
-whoas, err = client.Whoa(nil).list(nil, nil)
+whoas, err = client.Whoa().list
+puts whoas
 
 # Load a specific whoa
-whoa, err = client.Whoa(nil).load(
-  { "id" => "example_id" }, nil
-)
+whoa, err = client.Whoa().load({ "id" => "example_id" })
+puts whoa
 ```
 
 ### Lua
@@ -172,15 +172,17 @@ whoa, err = client.Whoa(nil).load(
 ```lua
 local sdk = require("keanu-whoa_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("KEANU-WHOA_APIKEY"),
+})
 
 -- List all whoas
-local whoas, err = client:Whoa(nil):list(nil, nil)
+local whoas, err = client:Whoa():list()
+print(whoas)
 
 -- Load a specific whoa
-local whoa, err = client:Whoa(nil):load(
-  { id = "example_id" }, nil
-)
+local whoa, err = client:Whoa():load({ id = "example_id" })
+print(whoa)
 ```
 
 ## Unit testing in offline mode
@@ -199,25 +201,21 @@ const result = await client.Whoa().load({ id: 'test01' })
 ### Python
 
 ```python
-client = KeanuWhoaSDK.test(None, None)
-result, err = client.Whoa(None).load(
-    {"id": "test01"}, None
-)
+client = KeanuWhoaSDK.test()
+result, err = client.Whoa().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = KeanuWhoaSDK::test(null, null);
-[$result, $err] = $client->Whoa(null)->load(
-    ["id" => "test01"], null
-);
+$client = KeanuWhoaSDK::test();
+[$result, $err] = $client->Whoa()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Whoa(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -226,19 +224,15 @@ result, err := client.Whoa(nil).Load(
 ### Ruby
 
 ```ruby
-client = KeanuWhoaSDK.test(nil, nil)
-result, err = client.Whoa(nil).load(
-  { "id" => "test01" }, nil
-)
+client = KeanuWhoaSDK.test
+result, err = client.Whoa().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Whoa(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Whoa():load({ id = "test01" })
 ```
 
 ## How it works
@@ -342,14 +336,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Keanu Whoa API
-
-- Upstream: [https://whoa.onrender.com](https://whoa.onrender.com)
-
-- The API does not publish an explicit licence in the catalogued documentation.
-- Treat the audio/quote data as the work of its original rights holders and use responsibly.
-- Attribution to the upstream Keanu Reeves Whoa API project is courteous when redistributing.
 
 ---
 

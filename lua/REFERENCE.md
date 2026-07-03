@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -113,7 +113,7 @@ local whoa = client:Whoa(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Whoa(nil):list(nil, nil)
+local results, err = client:Whoa():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -121,7 +121,7 @@ local results, err = client:Whoa(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Whoa(nil):load({ id = "whoa_id" }, nil)
+local result, err = client:Whoa():load({ id = "whoa_id" })
 ```
 
 ### Common Methods

@@ -109,12 +109,14 @@ def _whoa_direct_setup(mockres):
     env = runner.env_override({
         "KEANUWHOA_TEST_WHOA_ENTID": {},
         "KEANUWHOA_TEST_LIVE": "FALSE",
+        "KEANUWHOA_APIKEY": "NONE",
     })
 
     live = env.get("KEANUWHOA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("KEANUWHOA_APIKEY"),
         }
         client = KeanuWhoaSDK(merged_opts)
         return {

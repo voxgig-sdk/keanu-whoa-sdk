@@ -123,12 +123,14 @@ function whoa_direct_setup($mockres)
     $env = Runner::env_override([
         "KEANUWHOA_TEST_WHOA_ENTID" => [],
         "KEANUWHOA_TEST_LIVE" => "FALSE",
+        "KEANUWHOA_APIKEY" => "NONE",
     ]);
 
     $live = $env["KEANUWHOA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["KEANUWHOA_APIKEY"],
         ];
         $client = new KeanuWhoaSDK($merged_opts);
         return [

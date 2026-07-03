@@ -1,6 +1,11 @@
 # KeanuWhoa Ruby SDK
 
-The Ruby SDK for the KeanuWhoa API. Provides an entity-oriented interface using idiomatic Ruby conventions.
+
+
+The Ruby SDK for the KeanuWhoa API — an entity-oriented client using idiomatic Ruby conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -31,13 +36,15 @@ loading a specific record.
 ```ruby
 require_relative "KeanuWhoa_sdk"
 
-client = KeanuWhoaSDK.new({})
+client = KeanuWhoaSDK.new({
+  "apikey" => ENV["KEANU-WHOA_APIKEY"],
+})
 ```
 
 ### 2. List whoas
 
 ```ruby
-result, err = client.Whoa(nil).list(nil, nil)
+result, err = client.Whoa().list
 raise err if err
 
 if result.is_a?(Array)
@@ -51,7 +58,7 @@ end
 ### 3. Load a whoa
 
 ```ruby
-result, err = client.Whoa(nil).load({ "id" => "example_id" }, nil)
+result, err = client.Whoa().load({ "id" => "example_id" })
 raise err if err
 puts result
 ```
@@ -97,11 +104,9 @@ puts fetchdef["headers"]
 Create a mock client for unit testing — no server required:
 
 ```ruby
-client = KeanuWhoaSDK.test(nil, nil)
+client = KeanuWhoaSDK.test
 
-result, err = client.KeanuWhoa(nil).load(
-  { "id" => "test01" }, nil
-)
+result, err = client.KeanuWhoa().load({ "id" => "test01" })
 # result contains mock response data
 ```
 
@@ -133,6 +138,7 @@ Create a `.env.local` file at the project root:
 
 ```
 KEANU-WHOA_TEST_LIVE=TRUE
+KEANU-WHOA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -155,6 +161,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

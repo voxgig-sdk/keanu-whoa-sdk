@@ -194,12 +194,14 @@ func whoaDirectSetup(mockres any) *whoaDirectSetupResult {
 	env := envOverride(map[string]any{
 		"KEANUWHOA_TEST_WHOA_ENTID": map[string]any{},
 		"KEANUWHOA_TEST_LIVE":    "FALSE",
+		"KEANUWHOA_APIKEY":       "NONE",
 	})
 
 	live := env["KEANUWHOA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["KEANUWHOA_APIKEY"],
 		}
 		client := sdk.NewKeanuWhoaSDK(mergedOpts)
 

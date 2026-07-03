@@ -10,7 +10,7 @@ The PHP SDK for the KeanuWhoa API — an entity-oriented client using PHP conven
 
 ## Install
 ```bash
-composer require voxgig/keanu-whoa-sdk
+composer require voxgig-sdk/keanu-whoa
 ```
 
 

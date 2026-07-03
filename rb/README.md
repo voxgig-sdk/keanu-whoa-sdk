@@ -10,13 +10,13 @@ The Ruby SDK for the KeanuWhoa API — an entity-oriented client using idiomatic
 
 ## Install
 ```bash
-gem install keanu-whoa-sdk
+gem install voxgig-sdk-keanu-whoa
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "keanu-whoa-sdk"
+gem "voxgig-sdk-keanu-whoa"
 ```
 
 Then run:

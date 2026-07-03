@@ -10,7 +10,7 @@ The Lua SDK for the KeanuWhoa API — an entity-oriented client using Lua conven
 
 ## Install
 ```bash
-luarocks install keanu-whoa-sdk
+luarocks install voxgig-sdk-keanu-whoa
 ```
 
 If the module is not yet published, add the source directory to

@@ -1,8 +1,17 @@
 {
   "name": "voxgig-sdk/keanu-whoa",
-  "description": "KeanuWhoa SDK for PHP",
+  "description": "Unofficial generated PHP SDK for the Keanu Whoa public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
+  "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "keanu-whoa"],
+  "homepage": "https://github.com/voxgig-sdk/keanu-whoa-sdk",
   "license": "MIT",
+  "authors": [
+    { "name": "Voxgig", "homepage": "https://voxgig.com" }
+  ],
+  "support": {
+    "issues": "https://github.com/voxgig-sdk/keanu-whoa-sdk/issues",
+    "source": "https://github.com/voxgig-sdk/keanu-whoa-sdk"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=8.2"

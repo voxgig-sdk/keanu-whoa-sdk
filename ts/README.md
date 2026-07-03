@@ -10,7 +10,7 @@ The TypeScript SDK for the KeanuWhoa API — a type-safe, entity-oriented client
 
 ## Install
 ```bash
-npm install keanu-whoa
+npm install @voxgig-sdk/keanu-whoa
 ```
 ## Tutorial: your first API call
 

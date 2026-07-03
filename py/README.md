@@ -10,7 +10,7 @@ The Python SDK for the KeanuWhoa API — an entity-oriented client following Pyt
 
 ## Install
 ```bash
-pip install keanu-whoa-sdk
+pip install voxgig-sdk-keanu-whoa
 ```
 
 Or install from source:

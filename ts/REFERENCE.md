@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `KeanuWhoaSDK.test()`.
 ## WhoaEntity
 
 ```ts
-const whoa = client.Whoa()
+const whoa = client.whoa
 ```
 
 ### Fields
@@ -139,7 +138,7 @@ const whoa = client.Whoa()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Whoa().list()
+const results = await client.whoa.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -147,7 +146,7 @@ const results = await client.Whoa().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Whoa().load({ id: 'whoa_id' })
+const result = await client.whoa.load({ id: 'whoa_id' })
 ```
 
 ### Common Methods

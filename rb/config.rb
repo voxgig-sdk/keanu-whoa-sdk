@@ -15,9 +15,6 @@ module KeanuWhoaConfig
       },
       "options" => {
         "base" => "https://whoa.onrender.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -166,6 +163,7 @@ module KeanuWhoaConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },

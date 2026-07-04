@@ -50,16 +50,14 @@ class TestWhoaEntity:
         whoa_ref01_ent = client.Whoa(None)
         whoa_ref01_match = {}
 
-        whoa_ref01_list_result, err = whoa_ref01_ent.list(whoa_ref01_match, None)
-        assert err is None
+        whoa_ref01_list_result = whoa_ref01_ent.list(whoa_ref01_match, None)
         assert isinstance(whoa_ref01_list_result, list)
 
         # LOAD
         whoa_ref01_match_dt0 = {
             "id": whoa_ref01_data["id"],
         }
-        whoa_ref01_data_dt0_loaded, err = whoa_ref01_ent.load(whoa_ref01_match_dt0, None)
-        assert err is None
+        whoa_ref01_data_dt0_loaded = whoa_ref01_ent.load(whoa_ref01_match_dt0, None)
         whoa_ref01_data_dt0_load_result = helpers.to_map(whoa_ref01_data_dt0_loaded)
         assert whoa_ref01_data_dt0_load_result is not None
         assert whoa_ref01_data_dt0_load_result["id"] == whoa_ref01_data["id"]
@@ -102,7 +100,6 @@ def _whoa_basic_setup(extra):
         "KEANUWHOA_TEST_WHOA_ENTID": idmap,
         "KEANUWHOA_TEST_LIVE": "FALSE",
         "KEANUWHOA_TEST_EXPLAIN": "FALSE",
-        "KEANUWHOA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -113,7 +110,6 @@ def _whoa_basic_setup(extra):
     if env.get("KEANUWHOA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("KEANUWHOA_APIKEY"),
             },
             extra or {},
         ])

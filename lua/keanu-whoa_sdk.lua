@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:whoa():list() / client:whoa():load({ id = ... })
+function KeanuWhoaSDK:whoa(data)
+  local EntityMod = require("entity.whoa_entity")
+  if data == nil then
+    if self._whoa == nil then
+      self._whoa = EntityMod.new(self, nil)
+    end
+    return self._whoa
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:whoa() instead.
 function KeanuWhoaSDK:Whoa(data)
   local EntityMod = require("entity.whoa_entity")
   return EntityMod.new(self, data)

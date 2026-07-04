@@ -9,9 +9,12 @@ The TypeScript SDK for the KeanuWhoa API — a type-safe, entity-oriented client
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/keanu-whoa
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/keanu-whoa-sdk/releases](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { KeanuWhoaSDK } from 'keanu-whoa'
+import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa'
 
-const client = new KeanuWhoaSDK({
-  apikey: process.env.KEANU-WHOA_APIKEY,
-})
+const client = new KeanuWhoaSDK()
 ```
 
 ### 2. List whoas
 
 ```ts
-const result = await client.Whoa().list()
+const result = await client.whoa.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a whoa
 
 ```ts
-const result = await client.Whoa().load({ id: 'example_id' })
+const result = await client.whoa.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = KeanuWhoaSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.whoa.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new KeanuWhoaSDK({ apikey: '...' })
+const client = new KeanuWhoaSDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.whoa
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new KeanuWhoaSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -145,8 +145,7 @@ const client = new KeanuWhoaSDK({
 Create a `.env.local` file at the project root:
 
 ```
-KEANU-WHOA_TEST_LIVE=TRUE
-KEANU-WHOA_APIKEY=<your-key>
+KEANU_WHOA_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new KeanuWhoaSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new KeanuWhoaSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -291,7 +288,7 @@ API path: `/whoas`
 
 ### Whoa
 
-Create an instance: `const whoa = client.Whoa()`
+Create an instance: `const whoa = client.whoa`
 
 #### Operations
 
@@ -322,13 +319,13 @@ Create an instance: `const whoa = client.Whoa()`
 #### Example: Load
 
 ```ts
-const whoa = await client.Whoa().load({ id: 'whoa_id' })
+const whoa = await client.whoa.load({ id: 'whoa_id' })
 ```
 
 #### Example: List
 
 ```ts
-const whoas = await client.Whoa().list()
+const whoas = await client.whoa.list()
 ```
 
 
@@ -389,7 +386,7 @@ keanu-whoa/
 Import the SDK from the package root:
 
 ```ts
-import { KeanuWhoaSDK } from 'keanu-whoa'
+import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa'
 ```
 
 ### Entity state
@@ -399,11 +396,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const whoa = client.whoa
+await whoa.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// whoa.data() now returns the loaded whoa data
+// whoa.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

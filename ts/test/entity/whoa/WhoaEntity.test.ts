@@ -120,7 +120,6 @@ function basicSetup(extra?: any) {
     'KEANU_WHOA_TEST_WHOA_ENTID': idmap,
     'KEANU_WHOA_TEST_LIVE': 'FALSE',
     'KEANU_WHOA_TEST_EXPLAIN': 'FALSE',
-    'KEANU_WHOA_APIKEY': 'NONE',
   })
 
   idmap = env['KEANU_WHOA_TEST_WHOA_ENTID']
@@ -130,7 +129,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new KeanuWhoaSDK(merge([
       {
-        apikey: env.KEANU_WHOA_APIKEY,
       },
       extra
     ]))

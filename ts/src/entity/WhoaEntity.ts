@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Whoa,
+  WhoaLoadMatch,
+  WhoaListMatch,
+} from '../KeanuWhoaTypes'
 
 // TODO: needs Entity superclass
-class WhoaEntity extends KeanuWhoaEntityBase {
+class WhoaEntity extends KeanuWhoaEntityBase<Whoa> {
 
   constructor(client: KeanuWhoaSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +37,7 @@ class WhoaEntity extends KeanuWhoaEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: WhoaLoadMatch, ctrl?: Control): Promise<Whoa> {
 
     const utility = this._utility
 
@@ -136,14 +141,16 @@ class WhoaEntity extends KeanuWhoaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Whoa> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: WhoaListMatch, ctrl?: Control): Promise<Whoa[]> {
 
     const utility = this._utility
 
@@ -243,7 +250,9 @@ class WhoaEntity extends KeanuWhoaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Whoa[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

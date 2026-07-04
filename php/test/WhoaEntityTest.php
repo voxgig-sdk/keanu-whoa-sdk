@@ -50,16 +50,14 @@ class WhoaEntityTest extends TestCase
         $whoa_ref01_ent = $client->Whoa(null);
         $whoa_ref01_match = [];
 
-        [$whoa_ref01_list_result, $err] = $whoa_ref01_ent->list($whoa_ref01_match, null);
-        $this->assertNull($err);
+        $whoa_ref01_list_result = $whoa_ref01_ent->list($whoa_ref01_match, null);
         $this->assertIsArray($whoa_ref01_list_result);
 
         // LOAD
         $whoa_ref01_match_dt0 = [
             "id" => $whoa_ref01_data["id"],
         ];
-        [$whoa_ref01_data_dt0_loaded, $err] = $whoa_ref01_ent->load($whoa_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $whoa_ref01_data_dt0_loaded = $whoa_ref01_ent->load($whoa_ref01_match_dt0, null);
         $whoa_ref01_data_dt0_load_result = Helpers::to_map($whoa_ref01_data_dt0_loaded);
         $this->assertNotNull($whoa_ref01_data_dt0_load_result);
         $this->assertEquals($whoa_ref01_data_dt0_load_result["id"], $whoa_ref01_data["id"]);
@@ -96,7 +94,6 @@ function whoa_basic_setup($extra)
         "KEANUWHOA_TEST_WHOA_ENTID" => $idmap,
         "KEANUWHOA_TEST_LIVE" => "FALSE",
         "KEANUWHOA_TEST_EXPLAIN" => "FALSE",
-        "KEANUWHOA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -108,7 +105,6 @@ function whoa_basic_setup($extra)
     if ($env["KEANUWHOA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["KEANUWHOA_APIKEY"],
             ],
             $extra ?? [],
         ]);

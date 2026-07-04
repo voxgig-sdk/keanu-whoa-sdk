@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch WhoaLoadMatch
+---@param ctrl? table
+---@return Whoa
+---@return string? err
 function WhoaEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch WhoaListMatch
+---@param ctrl? table
+---@return Whoa[]
+---@return string? err
 function WhoaEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

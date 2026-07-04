@@ -45,6 +45,7 @@ class WhoaEntity
     end
   end
 
+  # @return [Whoa, Hash] the current Whoa data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class WhoaEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Whoa fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Whoa.
+  #
+  # @param reqmatch [WhoaLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Whoa, Hash] the loaded Whoa; raises KeanuWhoaError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
@@ -86,6 +93,11 @@ class WhoaEntity
 
 
   
+  # List Whoa items matching the given filter.
+  #
+  # @param reqmatch [WhoaListMatch, Hash, nil] match filter (any subset of Whoa fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Whoa>, Array] the matching Whoa items; raises KeanuWhoaError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

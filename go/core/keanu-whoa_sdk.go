@@ -245,6 +245,9 @@ func (sdk *KeanuWhoaSDK) Direct(fetchargs map[string]any) (map[string]any, error
 }
 
 
+// Whoa returns a Whoa entity bound to this client.
+// Idiomatic usage: client.Whoa(nil).List(nil, nil) or
+// client.Whoa(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *KeanuWhoaSDK) Whoa(data map[string]any) KeanuWhoaEntity {
 	return NewWhoaEntityFunc(sdk, data)
 }

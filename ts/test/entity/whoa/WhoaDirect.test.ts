@@ -136,14 +136,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'KEANUWHOA_TEST_WHOA_ENTID': {},
     'KEANUWHOA_TEST_LIVE': 'FALSE',
-    'KEANUWHOA_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.KEANUWHOA_TEST_LIVE
 
   if (live) {
     const client = new KeanuWhoaSDK({
-      apikey: env.KEANUWHOA_APIKEY,
     })
 
     let idmap: any = env['KEANUWHOA_TEST_WHOA_ENTID']

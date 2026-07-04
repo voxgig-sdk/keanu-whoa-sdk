@@ -9,12 +9,9 @@ The Lua SDK for the KeanuWhoa API — an entity-oriented client using Lua conven
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-keanu-whoa
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("keanu-whoa_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("KEANU-WHOA_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List whoas
 
 ```lua
-local result, err = client:Whoa():list()
+local result, err = client:whoa():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -53,7 +48,7 @@ end
 ### 3. Load a whoa
 
 ```lua
-local result, err = client:Whoa():load({ id = "example_id" })
+local result, err = client:whoa():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -101,7 +96,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:KeanuWhoa():load({ id = "test01" })
+local result, err = client:whoa():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -134,8 +129,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-KEANU-WHOA_TEST_LIVE=TRUE
-KEANU-WHOA_APIKEY=<your-key>
+KEANU_WHOA_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -158,7 +152,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -248,7 +241,7 @@ API path: `/whoas`
 
 ### Whoa
 
-Create an instance: `const whoa = client.Whoa()`
+Create an instance: `const whoa = client.whoa`
 
 #### Operations
 
@@ -279,13 +272,13 @@ Create an instance: `const whoa = client.Whoa()`
 #### Example: Load
 
 ```ts
-const whoa = await client.Whoa().load({ id: 'whoa_id' })
+const whoa = await client.whoa.load({ id: 'whoa_id' })
 ```
 
 #### Example: List
 
 ```ts
-const whoas = await client.Whoa().list()
+const whoas = await client.whoa.list()
 ```
 
 
@@ -360,11 +353,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local whoa = client:whoa()
+whoa:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- whoa:data_get() now returns the loaded whoa data
+-- whoa:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -2,6 +2,8 @@
 
 import { WhoaEntity } from './entity/WhoaEntity'
 
+export type * from './KeanuWhoaTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class KeanuWhoaSDK {
 
 
 
+  _whoa?: WhoaEntity
+
+  // Idiomatic facade: `client.whoa.list()` / `client.whoa.load({ id })`.
+  get whoa(): WhoaEntity {
+    return (this._whoa ??= new WhoaEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.whoa` instead. */
   Whoa(data?: any) {
     const self = this
     return new WhoaEntity(self,data)

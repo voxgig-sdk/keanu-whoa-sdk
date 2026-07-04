@@ -233,10 +233,10 @@ class KeanuWhoaSDK
 
     private $_whoa = null;
 
-    // Idiomatic facade: $client->whoa()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Whoa() (PHP method
-    // names are case-insensitive).
-    public function whoa($data = null)
+    // Canonical facade: $client->Whoa()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->whoa()
+    // resolves here too.
+    public function Whoa($data = null)
     {
         require_once __DIR__ . '/entity/whoa_entity.php';
         if ($data === null) {

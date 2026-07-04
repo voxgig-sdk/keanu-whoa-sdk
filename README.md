@@ -26,9 +26,11 @@ import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa'
 
 const client = new KeanuWhoaSDK()
 
-// List all whoas
-const whoas = await client.whoa.list()
-console.log(whoas.data)
+// List all whoas (returns Whoa[])
+const whoas = await client.Whoa().list()
+for (const whoa of whoas) {
+  console.log(whoa)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,12 +85,13 @@ from keanuwhoa_sdk import KeanuWhoaSDK
 
 client = KeanuWhoaSDK()
 
-# List all whoas
-whoas = client.whoa.list()
-print(whoas)
+# List all whoas (returns a list, raises on error)
+whoas = client.Whoa().list({})
+for whoa in whoas:
+    print(whoa)
 
-# Load a specific whoa
-whoa = client.whoa.load({"id": "example_id"})
+# Load a specific whoa (returns the record, raises on error)
+whoa = client.Whoa().load({"id": "example_id"})
 print(whoa)
 ```
 
@@ -100,12 +103,12 @@ require_once 'keanuwhoa_sdk.php';
 
 $client = new KeanuWhoaSDK();
 
-// List all whoas (throws on error)
-$whoas = $client->whoa()->list();
+// List all whoas (returns an array; throws on error)
+$whoas = $client->Whoa()->list();
 print_r($whoas);
 
-// Load a specific whoa
-$whoa = $client->whoa()->load(["id" => "example_id"]);
+// Load a specific whoa (returns the bare record; throws on error)
+$whoa = $client->Whoa()->load(["id" => "example_id"]);
 print_r($whoa);
 ```
 
@@ -128,12 +131,12 @@ require_relative "KeanuWhoa_sdk"
 
 client = KeanuWhoaSDK.new
 
-# List all whoas
-whoas = client.whoa.list
+# List all whoas (returns an Array; raises on error)
+whoas = client.Whoa.list
 puts whoas
 
-# Load a specific whoa
-whoa = client.whoa.load({ "id" => "example_id" })
+# Load a specific whoa (returns the bare record; raises on error)
+whoa = client.Whoa.load({ "id" => "example_id" })
 puts whoa
 ```
 
@@ -145,11 +148,11 @@ local sdk = require("keanu-whoa_sdk")
 local client = sdk.new()
 
 -- List all whoas
-local whoas, err = client:whoa():list()
+local whoas, err = client:Whoa():list()
 print(whoas)
 
 -- Load a specific whoa
-local whoa, err = client:whoa():load({ id = "example_id" })
+local whoa, err = client:Whoa():load({ id = "example_id" })
 print(whoa)
 ```
 
@@ -162,22 +165,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = KeanuWhoaSDK.test()
-const result = await client.whoa.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const whoa = await client.Whoa().load({ id: 1 })
+// whoa is a bare Whoa populated with mock data
+console.log(whoa)
 ```
 
 ### Python
 
 ```python
 client = KeanuWhoaSDK.test()
-result = client.whoa.load({"id": "test01"})
+whoa = client.Whoa().load({"id": "test01"})
+print(whoa)
 ```
 
 ### PHP
 
 ```php
-$client = KeanuWhoaSDK::test();
-$result = $client->whoa()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = KeanuWhoaSDK::test([
+    "entity" => ["whoa" => ["test01" => ["id" => "test01"]]],
+]);
+$whoa = $client->Whoa()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -192,15 +200,18 @@ result, err := client.Whoa(nil).Load(
 ### Ruby
 
 ```ruby
-client = KeanuWhoaSDK.test
-result = client.whoa.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = KeanuWhoaSDK.test({
+  "entity" => { "whoa" => { "test01" => { "id" => "test01" } } },
+})
+whoa = client.Whoa.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:whoa():load({ id = "test01" })
+local result, err = client:Whoa():load({ id = "test01" })
 ```
 
 ## How it works
@@ -248,6 +259,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

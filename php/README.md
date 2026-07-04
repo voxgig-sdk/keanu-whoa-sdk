@@ -29,18 +29,16 @@ require_once 'keanuwhoa_sdk.php';
 $client = new KeanuWhoaSDK();
 ```
 
-### 2. List whoas
+### 2. List whoa records
 
 ```php
 try {
-    $result = $client->whoa()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Whoa records — iterate directly.
+    $whoas = $client->Whoa()->list();
+    foreach ($whoas as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->whoa()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Whoa record (throws on error).
+    $whoa = $client->Whoa()->load(["id" => "example_id"]);
+    print_r($whoa);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = KeanuWhoaSDK::test();
+$client = KeanuWhoaSDK::test([
+    "entity" => ["whoa" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->whoa()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$whoa = $client->Whoa()->load(["id" => "test01"]);
+print_r($whoa);
 ```
 
 ### Use a custom fetch function
@@ -252,7 +255,7 @@ API path: `/whoas`
 
 ### Whoa
 
-Create an instance: `const whoa = client.whoa`
+Create an instance: `$whoa = $client->Whoa();`
 
 #### Operations
 
@@ -282,14 +285,16 @@ Create an instance: `const whoa = client.whoa`
 
 #### Example: Load
 
-```ts
-const whoa = await client.whoa.load({ id: 'whoa_id' })
+```php
+// load() returns the bare Whoa record (throws on error).
+$whoa = $client->Whoa()->load(["id" => "whoa_id"]);
 ```
 
 #### Example: List
 
-```ts
-const whoas = await client.whoa.list()
+```php
+// list() returns an array of Whoa records (throws on error).
+$whoas = $client->Whoa()->list();
 ```
 
 
@@ -364,7 +369,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$whoa = $client->whoa();
+$whoa = $client->Whoa();
 $whoa->load(["id" => "example_id"]);
 
 // $whoa->dataGet() now returns the loaded whoa data

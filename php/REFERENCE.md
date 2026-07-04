@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## WhoaEntity
 
 ```php
-$whoa = $client->whoa();
+$whoa = $client->Whoa();
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ $whoa = $client->whoa();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->whoa()->list([]);
+$results = $client->Whoa()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -122,7 +122,7 @@ $results = $client->whoa()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->whoa()->load(["id" => "whoa_id"]);
+$result = $client->Whoa()->load(["id" => "whoa_id"]);
 ```
 
 ### Common Methods

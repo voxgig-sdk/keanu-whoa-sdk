@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## WhoaEntity
 
 ```lua
-local whoa = client:whoa(nil)
+local whoa = client:Whoa(nil)
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ local whoa = client:whoa(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:whoa():list()
+local results, err = client:Whoa():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -120,7 +120,7 @@ local results, err = client:whoa():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:whoa():load({ id = "whoa_id" })
+local result, err = client:Whoa():load({ id = "whoa_id" })
 ```
 
 ### Common Methods

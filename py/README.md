@@ -31,24 +31,28 @@ from keanuwhoa_sdk import KeanuWhoaSDK
 client = KeanuWhoaSDK()
 ```
 
-### 2. List whoas
+### 2. List whoa records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.whoa.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    whoas = client.Whoa().list({})
+    for whoa in whoas:
+        print(whoa)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a whoa
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.whoa.load({"id": "example_id"})
-    print(result)
+    whoa = client.Whoa().load({"id": "example_id"})
+    print(whoa)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = KeanuWhoaSDK.test()
 
-result = client.whoa.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+whoa = client.Whoa().load({"id": "test01"})
+# whoa contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -243,7 +248,7 @@ API path: `/whoas`
 
 ### Whoa
 
-Create an instance: `const whoa = client.whoa`
+Create an instance: `whoa = client.Whoa()`
 
 #### Operations
 
@@ -273,14 +278,14 @@ Create an instance: `const whoa = client.whoa`
 
 #### Example: Load
 
-```ts
-const whoa = await client.whoa.load({ id: 'whoa_id' })
+```python
+whoa = client.Whoa().load({"id": "whoa_id"})
 ```
 
 #### Example: List
 
-```ts
-const whoas = await client.whoa.list()
+```python
+whoas = client.Whoa().list({})
 ```
 
 
@@ -354,7 +359,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-whoa = client.whoa
+whoa = client.Whoa()
 whoa.load({"id": "example_id"})
 
 # whoa.data_get() now returns the loaded whoa data

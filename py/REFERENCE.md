@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## WhoaEntity
 
 ```python
-whoa = client.whoa
+whoa = client.Whoa()
 ```
 
 ### Fields
@@ -109,7 +109,9 @@ whoa = client.whoa
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.whoa.list({})
+results = client.Whoa().list({})
+for whoa in results:
+    print(whoa)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -117,7 +119,7 @@ results = client.whoa.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.whoa.load({"id": "whoa_id"})
+result = client.Whoa().load({"id": "whoa_id"})
 ```
 
 ### Common Methods

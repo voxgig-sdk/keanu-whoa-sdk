@@ -30,53 +30,39 @@ go mod edit -replace github.com/voxgig-sdk/keanu-whoa-sdk/go=../keanu-whoa-sdk/g
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/keanu-whoa-sdk/go"
-    "github.com/voxgig-sdk/keanu-whoa-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 2. List whoas
-
-```go
-    result, err := client.Whoa(nil).List(nil, nil)
+    // List whoa records — the value is the array of records itself.
+    whoas, err := client.Whoa(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-
-    rm := core.ToMapAny(result)
-    if rm["ok"] == true {
-        for _, item := range rm["data"].([]any) {
-            p := core.ToMapAny(item)
-            fmt.Println(p["id"], p["name"])
-        }
+    for _, item := range whoas.([]any) {
+        fmt.Println(item)
     }
-```
 
-### 3. Load a whoa
-
-```go
-    result, err = client.Whoa(nil).Load(
-        map[string]any{"id": "example_id"}, nil,
-    )
+    // Load a single whoa — the value is the loaded record.
+    whoa, err := client.Whoa(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-
-    rm = core.ToMapAny(result)
-    if rm["ok"] == true {
-        fmt.Println(rm["data"])
-    }
+    fmt.Println(whoa)
 }
 ```
 
@@ -127,10 +113,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.Whoa(nil).Load(
+whoa, err := client.Whoa(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(whoa) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -227,17 +216,24 @@ All entities implement the `KeanuWhoaEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    whoa, err := client.Whoa(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // whoa is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -302,13 +298,21 @@ Create an instance: `whoa := client.Whoa(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Whoa(nil).Load(map[string]any{"id": "whoa_id"}, nil)
+whoa, err := client.Whoa(nil).Load(map[string]any{"id": "whoa_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(whoa) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.Whoa(nil).List(nil, nil)
+whoas, err := client.Whoa(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(whoas) // the array of records
 ```
 
 

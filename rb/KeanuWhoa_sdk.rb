@@ -208,13 +208,7 @@ class KeanuWhoaSDK
   end
 
 
-  # Idiomatic facade: client.whoa.list / client.whoa.load({ "id" => ... })
-  def whoa
-    require_relative 'entity/whoa_entity'
-    @whoa ||= WhoaEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.whoa instead.
+  # Canonical facade: client.Whoa.list / client.Whoa.load({ "id" => ... })
   def Whoa(data = nil)
     require_relative 'entity/whoa_entity'
     WhoaEntity.new(self, data)

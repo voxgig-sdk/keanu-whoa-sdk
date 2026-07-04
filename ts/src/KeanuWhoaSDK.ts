@@ -204,14 +204,7 @@ class KeanuWhoaSDK {
 
 
 
-  _whoa?: WhoaEntity
-
-  // Idiomatic facade: `client.whoa.list()` / `client.whoa.load({ id })`.
-  get whoa(): WhoaEntity {
-    return (this._whoa ??= new WhoaEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.whoa` instead. */
+  // Entity access: `client.Whoa().list()` / `client.Whoa().load({ id })`.
   Whoa(data?: any) {
     const self = this
     return new WhoaEntity(self,data)

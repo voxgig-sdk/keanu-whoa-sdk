@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:whoa():list() / client:whoa():load({ id = ... })
-function KeanuWhoaSDK:whoa(data)
+-- Idiomatic facade: client:Whoa():list() / client:Whoa():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function KeanuWhoaSDK:Whoa(data)
   local EntityMod = require("entity.whoa_entity")
   if data == nil then
     if self._whoa == nil then
@@ -253,12 +254,6 @@ function KeanuWhoaSDK:whoa(data)
     end
     return self._whoa
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:whoa() instead.
-function KeanuWhoaSDK:Whoa(data)
-  local EntityMod = require("entity.whoa_entity")
   return EntityMod.new(self, data)
 end
 

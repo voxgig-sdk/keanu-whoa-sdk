@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## WhoaEntity
 
 ```ruby
-whoa = client.whoa
+whoa = client.Whoa
 ```
 
 ### Fields
@@ -115,7 +115,7 @@ whoa = client.whoa
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.whoa.list(nil)
+results = client.Whoa.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -123,7 +123,7 @@ results = client.whoa.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.whoa.load({ "id" => "whoa_id" })
+result = client.Whoa.load({ "id" => "whoa_id" })
 ```
 
 ### Common Methods

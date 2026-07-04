@@ -220,25 +220,15 @@ class KeanuWhoaSDK:
         }
 
 
-    @property
-    def whoa(self):
-        """Idiomatic facade: client.whoa.list() / client.whoa.load({"id": ...})."""
-        from entity.whoa_entity import WhoaEntity
-        cached = getattr(self, "_whoa", None)
-        if cached is None:
-            cached = WhoaEntity(self, None)
-            self._whoa = cached
-        return cached
-
-    def Whoa(self, data=None):
-        # Deprecated: use client.whoa instead.
+    def Whoa(self, data=None) -> "WhoaEntity":
+        """Entity factory: client.Whoa().list({}) / client.Whoa().load({"id": ...})."""
         from entity.whoa_entity import WhoaEntity
         return WhoaEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "KeanuWhoaSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class KeanuWhoaSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.whoa_entity import WhoaEntity

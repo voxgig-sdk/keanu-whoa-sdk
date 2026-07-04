@@ -109,7 +109,7 @@ Alias for `KeanuWhoaSDK.test()`.
 ## WhoaEntity
 
 ```ts
-const whoa = client.whoa
+const whoa = client.Whoa()
 ```
 
 ### Fields
@@ -138,7 +138,7 @@ const whoa = client.whoa
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.whoa.list()
+const results = await client.Whoa().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -146,7 +146,7 @@ const results = await client.whoa.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.whoa.load({ id: 'whoa_id' })
+const result = await client.Whoa().load({ id: 'whoa_id' })
 ```
 
 ### Common Methods

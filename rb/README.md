@@ -28,16 +28,14 @@ require_relative "KeanuWhoa_sdk"
 client = KeanuWhoaSDK.new
 ```
 
-### 2. List whoas
+### 2. List whoa records
 
 ```ruby
 begin
-  result = client.whoa.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Whoa records — iterate directly.
+  whoas = client.Whoa.list
+  whoas.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.whoa.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Whoa record (raises on error).
+  whoa = client.Whoa.load({ "id" => "example_id" })
+  puts whoa
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = KeanuWhoaSDK.test
+client = KeanuWhoaSDK.test({
+  "entity" => { "whoa" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.whoa.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+whoa = client.Whoa.load({ "id" => "test01" })
+puts whoa
 ```
 
 ### Use a custom fetch function
@@ -247,7 +250,7 @@ API path: `/whoas`
 
 ### Whoa
 
-Create an instance: `const whoa = client.whoa`
+Create an instance: `whoa = client.Whoa`
 
 #### Operations
 
@@ -277,14 +280,16 @@ Create an instance: `const whoa = client.whoa`
 
 #### Example: Load
 
-```ts
-const whoa = await client.whoa.load({ id: 'whoa_id' })
+```ruby
+# load returns the bare Whoa record (raises on error).
+whoa = client.Whoa.load({ "id" => "whoa_id" })
 ```
 
 #### Example: List
 
-```ts
-const whoas = await client.whoa.list()
+```ruby
+# list returns an Array of Whoa records (raises on error).
+whoas = client.Whoa.list
 ```
 
 
@@ -359,7 +364,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-whoa = client.whoa
+whoa = client.Whoa
 whoa.load({ "id" => "example_id" })
 
 # whoa.data_get now returns the loaded whoa data

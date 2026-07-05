@@ -37,7 +37,7 @@ class WhoaLoadMatch
     public int $id;
 }
 
-/** Match filter for Whoa#list (any subset of Whoa fields). */
+/** Request payload for Whoa#list. */
 class WhoaListMatch
 {
     public ?string $audio = null;

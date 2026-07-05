@@ -8,7 +8,7 @@ Complete API reference for the KeanuWhoa Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'keanu-whoa_sdk'
+require_relative 'KeanuWhoa_sdk'
 
 client = KeanuWhoaSDK.new(options)
 ```
@@ -93,29 +93,29 @@ whoa = client.Whoa
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `audio` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `current_whoa_in_movie` | ``$INTEGER`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `full_line` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `movie` | ``$STRING`` | No |  |
-| `movie_duration` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `total_whoas_in_movie` | ``$INTEGER`` | No |  |
-| `video` | ``$OBJECT`` | No |  |
-| `whoa_in_movie` | ``$STRING`` | No |  |
-| `year` | ``$INTEGER`` | No |  |
+| `audio` | `String` | No |  |
+| `character` | `String` | No |  |
+| `current_whoa_in_movie` | `Integer` | No |  |
+| `director` | `String` | No |  |
+| `full_line` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `movie` | `String` | No |  |
+| `movie_duration` | `String` | No |  |
+| `poster` | `String` | No |  |
+| `timestamp` | `String` | No |  |
+| `total_whoas_in_movie` | `Integer` | No |  |
+| `video` | `Hash` | No |  |
+| `whoa_in_movie` | `String` | No |  |
+| `year` | `Integer` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Whoa.list(nil)
+results = client.Whoa.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

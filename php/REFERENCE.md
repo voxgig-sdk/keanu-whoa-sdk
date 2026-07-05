@@ -8,7 +8,7 @@ Complete API reference for the KeanuWhoa PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/keanu-whoa_sdk.php';
+require_once __DIR__ . '/keanuwhoa_sdk.php';
 
 $client = new KeanuWhoaSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = KeanuWhoaSDK::test();
 
 Create a new `WhoaEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): KeanuWhoaUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,29 +92,29 @@ $whoa = $client->Whoa();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `audio` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `current_whoa_in_movie` | ``$INTEGER`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `full_line` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `movie` | ``$STRING`` | No |  |
-| `movie_duration` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `total_whoas_in_movie` | ``$INTEGER`` | No |  |
-| `video` | ``$OBJECT`` | No |  |
-| `whoa_in_movie` | ``$STRING`` | No |  |
-| `year` | ``$INTEGER`` | No |  |
+| `audio` | `string` | No |  |
+| `character` | `string` | No |  |
+| `current_whoa_in_movie` | `int` | No |  |
+| `director` | `string` | No |  |
+| `full_line` | `string` | No |  |
+| `id` | `int` | No |  |
+| `movie` | `string` | No |  |
+| `movie_duration` | `string` | No |  |
+| `poster` | `string` | No |  |
+| `timestamp` | `string` | No |  |
+| `total_whoas_in_movie` | `int` | No |  |
+| `video` | `array` | No |  |
+| `whoa_in_movie` | `string` | No |  |
+| `year` | `int` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Whoa()->list([]);
+$results = $client->Whoa()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -127,19 +127,19 @@ $result = $client->Whoa()->load(["id" => "whoa_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -148,7 +148,7 @@ Set the entity match criteria.
 Create a new `WhoaEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

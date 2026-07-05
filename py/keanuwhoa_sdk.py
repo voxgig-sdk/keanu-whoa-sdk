@@ -221,7 +221,7 @@ class KeanuWhoaSDK:
 
 
     def Whoa(self, data=None) -> "WhoaEntity":
-        """Entity factory: client.Whoa().list({}) / client.Whoa().load({"id": ...})."""
+        """Entity factory: client.Whoa().list() / client.Whoa().load({"id": ...})."""
         from entity.whoa_entity import WhoaEntity
         return WhoaEntity(self, data)
 

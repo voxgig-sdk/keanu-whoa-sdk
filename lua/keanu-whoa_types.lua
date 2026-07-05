@@ -26,6 +26,20 @@
 ---@field id number
 
 ---@class WhoaListMatch
+---@field audio? string
+---@field character? string
+---@field current_whoa_in_movie? number
+---@field director? string
+---@field full_line? string
+---@field id? number
+---@field movie? string
+---@field movie_duration? string
+---@field poster? string
+---@field timestamp? string
+---@field total_whoas_in_movie? number
+---@field video? table
+---@field whoa_in_movie? string
+---@field year? number
 
 local M = {}
 

@@ -8,7 +8,7 @@ Complete API reference for the KeanuWhoa Python SDK.
 ### Constructor
 
 ```python
-from keanu-whoa_sdk import KeanuWhoaSDK
+from keanuwhoa_sdk import KeanuWhoaSDK
 
 client = KeanuWhoaSDK(options)
 ```
@@ -87,29 +87,29 @@ whoa = client.Whoa()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `audio` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `current_whoa_in_movie` | ``$INTEGER`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `full_line` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `movie` | ``$STRING`` | No |  |
-| `movie_duration` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `total_whoas_in_movie` | ``$INTEGER`` | No |  |
-| `video` | ``$OBJECT`` | No |  |
-| `whoa_in_movie` | ``$STRING`` | No |  |
-| `year` | ``$INTEGER`` | No |  |
+| `audio` | `str` | No |  |
+| `character` | `str` | No |  |
+| `current_whoa_in_movie` | `int` | No |  |
+| `director` | `str` | No |  |
+| `full_line` | `str` | No |  |
+| `id` | `int` | No |  |
+| `movie` | `str` | No |  |
+| `movie_duration` | `str` | No |  |
+| `poster` | `str` | No |  |
+| `timestamp` | `str` | No |  |
+| `total_whoas_in_movie` | `int` | No |  |
+| `video` | `dict` | No |  |
+| `whoa_in_movie` | `str` | No |  |
+| `year` | `int` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Whoa().list({})
+results = client.Whoa().list()
 for whoa in results:
     print(whoa)
 ```

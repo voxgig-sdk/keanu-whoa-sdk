@@ -31,8 +31,7 @@ type WhoaLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// WhoaListMatch mirrors the whoa fields as an all-optional match
-// filter (Go analog of Partial<Whoa>).
+// WhoaListMatch is the typed request payload for Whoa.ListTyped.
 type WhoaListMatch struct {
 	Audio *string `json:"audio,omitempty"`
 	Character *string `json:"character,omitempty"`

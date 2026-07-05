@@ -78,7 +78,7 @@ WhoaLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Whoa#list (any subset of Whoa fields).
+# Request payload for Whoa#list.
 #
 # @!attribute [rw] audio
 #   @return [String, nil]

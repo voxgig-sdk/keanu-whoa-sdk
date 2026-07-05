@@ -90,20 +90,20 @@ local whoa = client:Whoa(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `audio` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `current_whoa_in_movie` | ``$INTEGER`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `full_line` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `movie` | ``$STRING`` | No |  |
-| `movie_duration` | ``$STRING`` | No |  |
-| `poster` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `total_whoas_in_movie` | ``$INTEGER`` | No |  |
-| `video` | ``$OBJECT`` | No |  |
-| `whoa_in_movie` | ``$STRING`` | No |  |
-| `year` | ``$INTEGER`` | No |  |
+| `audio` | `string` | No |  |
+| `character` | `string` | No |  |
+| `current_whoa_in_movie` | `number` | No |  |
+| `director` | `string` | No |  |
+| `full_line` | `string` | No |  |
+| `id` | `number` | No |  |
+| `movie` | `string` | No |  |
+| `movie_duration` | `string` | No |  |
+| `poster` | `string` | No |  |
+| `timestamp` | `string` | No |  |
+| `total_whoas_in_movie` | `number` | No |  |
+| `video` | `table` | No |  |
+| `whoa_in_movie` | `string` | No |  |
+| `year` | `number` | No |  |
 
 ### Operations
 

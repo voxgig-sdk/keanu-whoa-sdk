@@ -56,7 +56,7 @@ except Exception as err:
 
 ```python
 try:
-    whoa = client.Whoa().load({"id": "example_id"})
+    whoa = client.Whoa().load({"id": 1})
     print(whoa)
 except Exception as err:
     print(f"load failed: {err}")
@@ -312,7 +312,7 @@ Create an instance: `whoa = client.Whoa()`
 #### Example: Load
 
 ```python
-whoa = client.Whoa().load({"id": "whoa_id"})
+whoa = client.Whoa().load({"id": 1})
 ```
 
 #### Example: List

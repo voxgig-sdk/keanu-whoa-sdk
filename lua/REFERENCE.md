@@ -120,7 +120,7 @@ local results, err = client:Whoa():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Whoa():load({ id = "whoa_id" })
+local result, err = client:Whoa():load({ id = 1 })
 ```
 
 ### Common Methods

@@ -15,9 +15,9 @@ main: {
           url: "https://whoa.onrender.com"
         }
       ]
+      summary: "A free JSON API for every 'whoa' said by actor Keanu Reeves in his movies."
       title: "Keanu Whoa API"
       version: "1.0.0"
+      website: "https://whoa.onrender.com"
     }
   }
-}
-

@@ -49,7 +49,7 @@ end
 ```ruby
 begin
   # load returns the bare Whoa record (raises on error).
-  whoa = client.Whoa.load({ "id" => "example_id" })
+  whoa = client.Whoa.load({ "id" => 1 })
   puts whoa
 rescue => err
   warn "load failed: #{err}"
@@ -310,7 +310,7 @@ Create an instance: `whoa = client.Whoa`
 
 ```ruby
 # load returns the bare Whoa record (raises on error).
-whoa = client.Whoa.load({ "id" => "whoa_id" })
+whoa = client.Whoa.load({ "id" => 1 })
 ```
 
 #### Example: List

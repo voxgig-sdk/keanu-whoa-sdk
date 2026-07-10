@@ -122,7 +122,7 @@ $results = $client->Whoa()->list();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Whoa()->load(["id" => "whoa_id"]);
+$result = $client->Whoa()->load(["id" => 1]);
 ```
 
 ### Common Methods

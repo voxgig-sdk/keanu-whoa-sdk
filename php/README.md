@@ -50,7 +50,7 @@ try {
 ```php
 try {
     // load() returns the bare Whoa record (throws on error).
-    $whoa = $client->Whoa()->load(["id" => "example_id"]);
+    $whoa = $client->Whoa()->load(["id" => 1]);
     print_r($whoa);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -320,7 +320,7 @@ Create an instance: `$whoa = $client->Whoa();`
 
 ```php
 // load() returns the bare Whoa record (throws on error).
-$whoa = $client->Whoa()->load(["id" => "whoa_id"]);
+$whoa = $client->Whoa()->load(["id" => 1]);
 ```
 
 #### Example: List

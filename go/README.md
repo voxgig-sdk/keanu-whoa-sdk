@@ -326,7 +326,7 @@ Create an instance: `whoa := client.Whoa(nil)`
 #### Example: Load
 
 ```go
-whoa, err := client.Whoa(nil).Load(map[string]any{"id": "whoa_id"}, nil)
+whoa, err := client.Whoa(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }

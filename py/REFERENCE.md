@@ -119,7 +119,7 @@ for whoa in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Whoa().load({"id": "whoa_id"})
+result = client.Whoa().load({"id": 1})
 ```
 
 ### Common Methods

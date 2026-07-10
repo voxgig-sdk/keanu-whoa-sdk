@@ -50,7 +50,7 @@ end
 ### 3. Load a whoa
 
 ```lua
-local whoa, err = client:Whoa():load({ id = "example_id" })
+local whoa, err = client:Whoa():load({ id = 1 })
 if err then error(err) end
 print(whoa)
 ```
@@ -298,7 +298,7 @@ Create an instance: `local whoa = client:Whoa(nil)`
 #### Example: Load
 
 ```lua
-local whoa, err = client:Whoa():load({ id = "whoa_id" })
+local whoa, err = client:Whoa():load({ id = 1 })
 ```
 
 #### Example: List

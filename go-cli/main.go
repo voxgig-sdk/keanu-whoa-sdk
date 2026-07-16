@@ -27,7 +27,20 @@ func main() {
 }
 
 func run(args []string, in io.Reader, out, errOut io.Writer) int {
-	client := sdk.NewKeanuWhoaSDK(nil)
+	// Configure from the environment: KEANU_WHOA_APIKEY carries the API key and
+	// KEANU_WHOA_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("KEANU_WHOA_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("KEANU_WHOA_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewKeanuWhoaSDK(opts)
 
 	r, err := eng.NewRegistry()
 	if err != nil {

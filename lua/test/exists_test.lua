@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- KeanuWhoa SDK exists test
 
 local sdk = require("keanu-whoa_sdk")
 

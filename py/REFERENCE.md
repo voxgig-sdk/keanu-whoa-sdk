@@ -87,6 +87,10 @@ whoa = client.Whoa()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `1080p` | `str` | No |  |
+| `360p` | `str` | No |  |
+| `480p` | `str` | No |  |
+| `720p` | `str` | No |  |
 | `audio` | `str` | No |  |
 | `character` | `str` | No |  |
 | `current_whoa_in_movie` | `int` | No |  |

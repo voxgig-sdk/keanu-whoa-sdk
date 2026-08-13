@@ -23,8 +23,8 @@ module KeanuWhoaTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("KEANUWHOA_TEST_LIVE")
-    override = getenv("KEANUWHOA_TEST_OVERRIDE")
+    live = getenv("KEANU_WHOA_TEST_LIVE")
+    override = getenv("KEANU_WHOA_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module KeanuWhoaTestRunner
       end
     end
 
-    explain = getenv("KEANUWHOA_TEST_EXPLAIN")
-    m["KEANUWHOA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("KEANU_WHOA_TEST_EXPLAIN")
+    m["KEANU_WHOA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

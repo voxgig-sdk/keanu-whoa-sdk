@@ -37,7 +37,7 @@ begin
   # list returns an Array of Whoa records — iterate directly.
   whoas = client.Whoa.list
   whoas.each do |item|
-    puts "#{item["id"]} #{item["audio"]}"
+    puts "#{item["id"]} #{item["1080p"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Whoa record (raises on error).
+  # load returns the ENTITY — call data_get for the Whoa record (raises on error).
   whoa = client.Whoa.load({ "id" => 1 })
   puts whoa
 rescue => err
@@ -134,7 +134,8 @@ client = KeanuWhoaSDK.test({
   "entity" => { "whoa" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 whoa = client.Whoa.list()
 puts whoa
 ```
@@ -252,6 +253,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
+| `1080p` |  |
+| `360p` |  |
+| `480p` |  |
+| `720p` |  |
 | `audio` |  |
 | `character` |  |
 | `current_whoa_in_movie` |  |
@@ -291,6 +296,10 @@ Create an instance: `whoa = client.Whoa`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `1080p` | `String` |  |
+| `360p` | `String` |  |
+| `480p` | `String` |  |
+| `720p` | `String` |  |
 | `audio` | `String` |  |
 | `character` | `String` |  |
 | `current_whoa_in_movie` | `Integer` |  |
@@ -309,7 +318,7 @@ Create an instance: `whoa = client.Whoa`
 #### Example: Load
 
 ```ruby
-# load returns the bare Whoa record (raises on error).
+# load returns the ENTITY — call data_get for the Whoa record (raises on error).
 whoa = client.Whoa.load({ "id" => 1 })
 ```
 

@@ -6,6 +6,26 @@ main: kit: entity: whoa: {
 
   fields: [
     {
+      name: "1080p"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "360p"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "480p"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "720p"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "audio"
       req: false
       type: "`$STRING`"
@@ -128,7 +148,7 @@ main: kit: entity: whoa: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.video`"
           }
         }
         {
@@ -143,7 +163,7 @@ main: kit: entity: whoa: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.video`"
           }
         }
       ]

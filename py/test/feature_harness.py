@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import KeanuWhoaControl
-from core.error import KeanuWhoaError
-from core.result import KeanuWhoaResult
-from core.spec import KeanuWhoaSpec
+from keanuwhoa_sdk.config import make_config
+from keanuwhoa_sdk.features import _make_feature
+from keanuwhoa_sdk.core.control import KeanuWhoaControl
+from keanuwhoa_sdk.core.error import KeanuWhoaError
+from keanuwhoa_sdk.core.result import KeanuWhoaResult
+from keanuwhoa_sdk.core.spec import KeanuWhoaSpec
 
 
 # True when this SDK was generated with the named feature.

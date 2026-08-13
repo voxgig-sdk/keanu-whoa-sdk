@@ -43,8 +43,8 @@ class KeanuWhoaTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('KEANUWHOA_TEST_LIVE');
-        $override = self::getenv('KEANUWHOA_TEST_OVERRIDE');
+        $live = self::getenv('KEANU_WHOA_TEST_LIVE');
+        $override = self::getenv('KEANU_WHOA_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class KeanuWhoaTestRunner
             }
         }
 
-        $explain = self::getenv('KEANUWHOA_TEST_EXPLAIN');
+        $explain = self::getenv('KEANU_WHOA_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['KEANUWHOA_TEST_EXPLAIN'] = $explain;
+            $m['KEANU_WHOA_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = KeanuWhoaSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = KeanuWhoaSDK.test({
+  entity: {
+    whoa: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const whoas = await client.Whoa().list()
-// whoas is an array of bare Whoa records populated with mock data
+// whoas is an array of Whoa entities, populated with mock data
+// — call whoas[0].data() for the record itself
 console.log(whoas)
 ```
 
@@ -110,7 +119,7 @@ import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa'
 
 const client = new KeanuWhoaSDK()
 
-// List all whoas (returns Whoa[])
+// List all whoas (returns WhoaEntity[] — .data() for the record)
 const whoas = await client.Whoa().list()
 for (const whoa of whoas) {
   console.log(whoa)
@@ -191,7 +200,7 @@ $client = new KeanuWhoaSDK();
 $whoas = $client->Whoa()->list();
 print_r($whoas);
 
-// Load a specific whoa (returns the bare record; throws on error)
+// Load a specific whoa (returns the ENTITY; call data_get() for the record; throws on error)
 $whoa = $client->Whoa()->load(["id" => 1]);
 print_r($whoa);
 ```
@@ -222,7 +231,7 @@ client = KeanuWhoaSDK.new
 whoas = client.Whoa.list
 puts whoas
 
-# Load a specific whoa (returns the bare record; raises on error)
+# Load a specific whoa (returns the ENTITY; call data_get for the record)
 whoa = client.Whoa.load({ "id" => 1 })
 puts whoa
 ```
@@ -359,6 +368,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://whoa.onrender.com/](https://whoa.onrender.com/)
 

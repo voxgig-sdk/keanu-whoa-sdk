@@ -116,6 +116,10 @@ const whoa = client.Whoa()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `1080p` | `string` | No |  |
+| `360p` | `string` | No |  |
+| `480p` | `string` | No |  |
+| `720p` | `string` | No |  |
 | `audio` | `string` | No |  |
 | `character` | `string` | No |  |
 | `current_whoa_in_movie` | `number` | No |  |
@@ -130,6 +134,26 @@ const whoa = client.Whoa()
 | `video` | `Record<string, any>` | No |  |
 | `whoa_in_movie` | `string` | No |  |
 | `year` | `number` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `random` | `/whoas/random` | `client.Whoa().load({ $action: 'random', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Whoa record — check the API definition for its shape.
+
+```ts
+const result = await client.Whoa().load({
+  $action: 'random',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

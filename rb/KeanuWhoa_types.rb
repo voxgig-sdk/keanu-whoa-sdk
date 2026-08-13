@@ -10,6 +10,18 @@
 
 # Whoa entity data model.
 #
+# @!attribute [rw] 1080p
+#   @return [String, nil]
+#
+# @!attribute [rw] 360p
+#   @return [String, nil]
+#
+# @!attribute [rw] 480p
+#   @return [String, nil]
+#
+# @!attribute [rw] 720p
+#   @return [String, nil]
+#
 # @!attribute [rw] audio
 #   @return [String, nil]
 #
@@ -52,6 +64,10 @@
 # @!attribute [rw] year
 #   @return [Integer, nil]
 Whoa = Struct.new(
+  :"1080p",
+  :"360p",
+  :"480p",
+  :"720p",
   :audio,
   :character,
   :current_whoa_in_movie,
@@ -79,6 +95,18 @@ WhoaLoadMatch = Struct.new(
 )
 
 # Request payload for Whoa#list.
+#
+# @!attribute [rw] 1080p
+#   @return [String, nil]
+#
+# @!attribute [rw] 360p
+#   @return [String, nil]
+#
+# @!attribute [rw] 480p
+#   @return [String, nil]
+#
+# @!attribute [rw] 720p
+#   @return [String, nil]
 #
 # @!attribute [rw] audio
 #   @return [String, nil]
@@ -122,6 +150,10 @@ WhoaLoadMatch = Struct.new(
 # @!attribute [rw] year
 #   @return [Integer, nil]
 WhoaListMatch = Struct.new(
+  :"1080p",
+  :"360p",
+  :"480p",
+  :"720p",
   :audio,
   :character,
   :current_whoa_in_movie,

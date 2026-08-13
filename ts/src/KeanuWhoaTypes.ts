@@ -6,6 +6,10 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Whoa {
+  "1080p"?: string
+  "360p"?: string
+  "480p"?: string
+  "720p"?: string
   audio?: string
   character?: string
   current_whoa_in_movie?: number
@@ -24,9 +28,19 @@ export interface Whoa {
 
 export interface WhoaLoadMatch {
   id: number
+
+  // Selects a custom action instead of the plain load:
+  //   'random'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface WhoaListMatch {
+  "1080p"?: string
+  "360p"?: string
+  "480p"?: string
+  "720p"?: string
   audio?: string
   character?: string
   current_whoa_in_movie?: number

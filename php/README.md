@@ -38,7 +38,7 @@ try {
     // list() returns an array of Whoa records — iterate directly.
     $whoas = $client->Whoa()->list();
     foreach ($whoas as $item) {
-        echo $item["id"] . " " . $item["audio"] . "\n";
+        echo $item["id"] . " " . $item["1080p"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Whoa record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Whoa record (throws on error).
     $whoa = $client->Whoa()->load(["id" => 1]);
     print_r($whoa);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = KeanuWhoaSDK::test([
     "entity" => ["whoa" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $whoa = $client->Whoa()->list();
 print_r($whoa);
 ```
@@ -240,7 +241,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -262,6 +263,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
+| `1080p` |  |
+| `360p` |  |
+| `480p` |  |
+| `720p` |  |
 | `audio` |  |
 | `character` |  |
 | `current_whoa_in_movie` |  |
@@ -301,6 +306,10 @@ Create an instance: `$whoa = $client->Whoa();`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `1080p` | `string` |  |
+| `360p` | `string` |  |
+| `480p` | `string` |  |
+| `720p` | `string` |  |
 | `audio` | `string` |  |
 | `character` | `string` |  |
 | `current_whoa_in_movie` | `int` |  |
@@ -319,7 +328,7 @@ Create an instance: `$whoa = $client->Whoa();`
 #### Example: Load
 
 ```php
-// load() returns the bare Whoa record (throws on error).
+// load() returns the ENTITY — call data_get() for the Whoa record (throws on error).
 $whoa = $client->Whoa()->load(["id" => 1]);
 ```
 

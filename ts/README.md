@@ -35,7 +35,9 @@ const client = new KeanuWhoaSDK()
 
 ### 2. List whoa records
 
-`list()` resolves to an array of Whoa objects — iterate it directly:
+`list()` resolves to an array of Whoa ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const whoas = await client.Whoa().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = KeanuWhoaSDK.test()
 
 const whoa = await client.Whoa().list()
-// whoa is a bare entity populated with mock response data
+// whoa is the entity, populated with mock response data
+// — call whoa.data() for the record itself
 console.log(whoa)
 ```
 
@@ -299,6 +302,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
+| `1080p` |  |
+| `360p` |  |
+| `480p` |  |
+| `720p` |  |
 | `audio` |  |
 | `character` |  |
 | `current_whoa_in_movie` |  |
@@ -338,6 +345,10 @@ Create an instance: `const whoa = client.Whoa()`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `1080p` | `string` |  |
+| `360p` | `string` |  |
+| `480p` | `string` |  |
+| `720p` | `string` |  |
 | `audio` | `string` |  |
 | `character` | `string` |  |
 | `current_whoa_in_movie` | `number` |  |

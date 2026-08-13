@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# KeanuWhoa SDK exists test
 
 import pytest
 from keanuwhoa_sdk import KeanuWhoaSDK

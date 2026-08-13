@@ -92,7 +92,7 @@ func TestWhoaEntity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set KEANUWHOA_TEST_WHOA_ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set KEANU_WHOA_TEST_WHOA_ENTID JSON to run live")
 			return
 		}
 		client := setup.client
@@ -128,7 +128,7 @@ func TestWhoaEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		whoaRef01DataDt0LoadResult := core.ToMapAny(whoaRef01DataDt0Loaded)
+		whoaRef01DataDt0LoadResult := core.ToMapAny(entityData(whoaRef01DataDt0Loaded))
 		if whoaRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}
@@ -176,21 +176,21 @@ func whoaBasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("KEANUWHOA_TEST_WHOA_ENTID")
+	entidEnvRaw := os.Getenv("KEANU_WHOA_TEST_WHOA_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"KEANUWHOA_TEST_WHOA_ENTID": idmap,
-		"KEANUWHOA_TEST_LIVE":      "FALSE",
-		"KEANUWHOA_TEST_EXPLAIN":   "FALSE",
+		"KEANU_WHOA_TEST_WHOA_ENTID": idmap,
+		"KEANU_WHOA_TEST_LIVE":      "FALSE",
+		"KEANU_WHOA_TEST_EXPLAIN":   "FALSE",
 	})
 
-	idmapResolved := core.ToMapAny(env["KEANUWHOA_TEST_WHOA_ENTID"])
+	idmapResolved := core.ToMapAny(env["KEANU_WHOA_TEST_WHOA_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}
 
-	if env["KEANUWHOA_TEST_LIVE"] == "TRUE" {
+	if env["KEANU_WHOA_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
 			},
@@ -199,13 +199,13 @@ func whoaBasicSetup(extra map[string]any) *entityTestSetup {
 		client = sdk.NewKeanuWhoaSDK(core.ToMapAny(mergedOpts))
 	}
 
-	live := env["KEANUWHOA_TEST_LIVE"] == "TRUE"
+	live := env["KEANU_WHOA_TEST_LIVE"] == "TRUE"
 	return &entityTestSetup{
 		client:        client,
 		data:          entityData,
 		idmap:         idmapResolved,
 		env:           env,
-		explain:       env["KEANUWHOA_TEST_EXPLAIN"] == "TRUE",
+		explain:       env["KEANU_WHOA_TEST_EXPLAIN"] == "TRUE",
 		live:          live,
 		syntheticOnly: live && !idmapOverridden,
 		now:           time.Now().UnixMilli(),

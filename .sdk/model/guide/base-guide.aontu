@@ -12,9 +12,11 @@ guide: {
     path: "/whoas/random": {
       action: "random": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.video`")|top
     }
     path: "/whoas/{id}": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.video`")|top
     }
   }
 

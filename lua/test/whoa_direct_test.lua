@@ -115,11 +115,11 @@ function whoa_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["KEANUWHOA_TEST_WHOA_ENTID"] = {},
-    ["KEANUWHOA_TEST_LIVE"] = "FALSE",
+    ["KEANU_WHOA_TEST_WHOA_ENTID"] = {},
+    ["KEANU_WHOA_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["KEANUWHOA_TEST_LIVE"] == "TRUE"
+  local live = env["KEANU_WHOA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

@@ -43,7 +43,7 @@ local whoas, err = client:Whoa():list()
 if err then error(err) end
 
 for _, item in ipairs(whoas) do
-  print(item["id"], item["audio"])
+  print(item["id"], item["1080p"])
 end
 ```
 
@@ -241,6 +241,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
+| `1080p` |  |
+| `360p` |  |
+| `480p` |  |
+| `720p` |  |
 | `audio` |  |
 | `character` |  |
 | `current_whoa_in_movie` |  |
@@ -280,6 +284,10 @@ Create an instance: `local whoa = client:Whoa(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `1080p` | `string` |  |
+| `360p` | `string` |  |
+| `480p` | `string` |  |
+| `720p` | `string` |  |
 | `audio` | `string` |  |
 | `character` | `string` |  |
 | `current_whoa_in_movie` | `number` |  |

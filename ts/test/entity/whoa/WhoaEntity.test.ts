@@ -26,8 +26,8 @@ import {
 describe('WhoaEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when KEANUWHOA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('KEANUWHOA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when KEANU_WHOA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('KEANU_WHOA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = KeanuWhoaSDK.test()
@@ -63,13 +63,13 @@ describe('WhoaEntity', async () => {
     const whoa_ref01_ent = client.Whoa()
     const whoa_ref01_match: any = {}
 
-    const whoa_ref01_list = await whoa_ref01_ent.list(whoa_ref01_match)
+    const whoa_ref01_list = (await whoa_ref01_ent.list(whoa_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const whoa_ref01_match_dt0: any = {}
     whoa_ref01_match_dt0.id = whoa_ref01_data.id
-    const whoa_ref01_data_dt0 = await whoa_ref01_ent.load(whoa_ref01_match_dt0)
+    const whoa_ref01_data_dt0 = (await whoa_ref01_ent.load(whoa_ref01_match_dt0)).data()
     assert(whoa_ref01_data_dt0.id === whoa_ref01_data.id)
 
 

@@ -269,6 +269,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
+| `"1080p"` |  |
+| `"360p"` |  |
+| `"480p"` |  |
+| `"720p"` |  |
 | `"audio"` |  |
 | `"character"` |  |
 | `"current_whoa_in_movie"` |  |
@@ -308,6 +312,10 @@ Create an instance: `whoa := client.Whoa(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `1080p` | `string` |  |
+| `360p` | `string` |  |
+| `480p` | `string` |  |
+| `720p` | `string` |  |
 | `audio` | `string` |  |
 | `character` | `string` |  |
 | `current_whoa_in_movie` | `int` |  |

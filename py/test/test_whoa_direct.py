@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from keanuwhoa_sdk.utility.voxgig_struct import voxgig_struct as vs
 from keanuwhoa_sdk import KeanuWhoaSDK
-from core import helpers
+from keanuwhoa_sdk.core import helpers
 from test import runner
 
 
@@ -105,11 +105,11 @@ def _whoa_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "KEANUWHOA_TEST_WHOA_ENTID": {},
-        "KEANUWHOA_TEST_LIVE": "FALSE",
+        "KEANU_WHOA_TEST_WHOA_ENTID": {},
+        "KEANU_WHOA_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("KEANUWHOA_TEST_LIVE") == "TRUE"
+    live = env.get("KEANU_WHOA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

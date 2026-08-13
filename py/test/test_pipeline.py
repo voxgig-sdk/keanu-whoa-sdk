@@ -16,11 +16,11 @@
 import pytest
 
 from keanuwhoa_sdk import KeanuWhoaSDK
-from core.error import KeanuWhoaError
-from core.result import KeanuWhoaResult
-from core.response import KeanuWhoaResponse
-from core.spec import KeanuWhoaSpec
-from feature.base_feature import KeanuWhoaBaseFeature
+from keanuwhoa_sdk.core.error import KeanuWhoaError
+from keanuwhoa_sdk.core.result import KeanuWhoaResult
+from keanuwhoa_sdk.core.response import KeanuWhoaResponse
+from keanuwhoa_sdk.core.spec import KeanuWhoaSpec
+from keanuwhoa_sdk.feature.base_feature import KeanuWhoaBaseFeature
 
 
 def _client():

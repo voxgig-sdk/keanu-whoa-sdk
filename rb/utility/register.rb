@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ KeanuWhoaUtility.registrar = ->(u) {
   u.prepare_params = KeanuWhoaUtilities::PrepareParams
   u.prepare_path = KeanuWhoaUtilities::PreparePath
   u.prepare_query = KeanuWhoaUtilities::PrepareQuery
+  u.graphql_body = KeanuWhoaUtilities::GraphqlBody
+  u.graphql_errors = KeanuWhoaUtilities::GraphqlErrors
   u.result_basic = KeanuWhoaUtilities::ResultBasic
   u.result_body = KeanuWhoaUtilities::ResultBody
   u.result_headers = KeanuWhoaUtilities::ResultHeaders

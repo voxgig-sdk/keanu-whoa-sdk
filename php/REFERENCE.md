@@ -92,6 +92,10 @@ $whoa = $client->Whoa();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `1080p` | `string` | No |  |
+| `360p` | `string` | No |  |
+| `480p` | `string` | No |  |
+| `720p` | `string` | No |  |
 | `audio` | `string` | No |  |
 | `character` | `string` | No |  |
 | `current_whoa_in_movie` | `int` | No |  |

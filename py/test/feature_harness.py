@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from keanuwhoa_sdk.config import make_config
+from keanuwhoa_sdk.config import shared_config
 from keanuwhoa_sdk.features import _make_feature
 from keanuwhoa_sdk.core.control import KeanuWhoaControl
 from keanuwhoa_sdk.core.error import KeanuWhoaError
@@ -24,7 +24,7 @@ from keanuwhoa_sdk.core.spec import KeanuWhoaSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

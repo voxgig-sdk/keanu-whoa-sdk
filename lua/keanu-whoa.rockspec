@@ -23,6 +23,7 @@ build = {
   modules = {
     ["keanu-whoa_sdk"] = "keanu-whoa_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

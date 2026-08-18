@@ -28,7 +28,7 @@ class KeanuWhoaSDK
     utility = KeanuWhoaUtility.new
     @_utility = utility
 
-    config = KeanuWhoaConfig.make_config
+    config = KeanuWhoaConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

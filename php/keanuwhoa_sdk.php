@@ -40,7 +40,7 @@ class KeanuWhoaSDK
         $utility = new KeanuWhoaUtility();
         $this->_utility = $utility;
 
-        $config = KeanuWhoaConfig::make_config();
+        $config = KeanuWhoaConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

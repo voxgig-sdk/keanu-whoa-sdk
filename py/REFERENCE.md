@@ -87,24 +87,24 @@ whoa = client.Whoa()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `1080p` | `str` | No |  |
-| `360p` | `str` | No |  |
-| `480p` | `str` | No |  |
-| `720p` | `str` | No |  |
-| `audio` | `str` | No |  |
-| `character` | `str` | No |  |
-| `current_whoa_in_movie` | `int` | No |  |
-| `director` | `str` | No |  |
-| `full_line` | `str` | No |  |
-| `id` | `int` | No |  |
-| `movie` | `str` | No |  |
-| `movie_duration` | `str` | No |  |
-| `poster` | `str` | No |  |
-| `timestamp` | `str` | No |  |
-| `total_whoas_in_movie` | `int` | No |  |
+| `1080p` | `str` | No | URL to 1080p video clip |
+| `360p` | `str` | No | URL to 360p video clip |
+| `480p` | `str` | No | URL to 480p video clip |
+| `720p` | `str` | No | URL to 720p video clip |
+| `audio` | `str` | No | URL to audio clip of the whoa |
+| `character` | `str` | No | Character name that Keanu Reeves played |
+| `current_whoa_in_movie` | `int` | No | The number of this whoa within the movie |
+| `director` | `str` | No | Director of the movie |
+| `full_line` | `str` | No | The full line of dialogue containing the whoa |
+| `id` | `int` | No | Unique identifier for the whoa instance |
+| `movie` | `str` | No | Title of the movie where the whoa was said |
+| `movie_duration` | `str` | No | Total duration of the movie |
+| `poster` | `str` | No | URL to movie poster image |
+| `timestamp` | `str` | No | Timestamp when the whoa occurs in the movie |
+| `total_whoas_in_movie` | `int` | No | Total number of whoas in the movie |
 | `video` | `dict` | No |  |
-| `whoa_in_movie` | `str` | No |  |
-| `year` | `int` | No |  |
+| `whoa_in_movie` | `str` | No | Representation of whoa count in the movie (e.g., '1 of 5') |
+| `year` | `int` | No | Year the movie was released |
 
 ### Operations
 

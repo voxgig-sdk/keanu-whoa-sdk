@@ -36,90 +36,105 @@
               "active": true,
               "name": "1080p",
               "req": false,
+              "short": "URL to 1080p video clip",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "360p",
               "req": false,
+              "short": "URL to 360p video clip",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "480p",
               "req": false,
+              "short": "URL to 480p video clip",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "720p",
               "req": false,
+              "short": "URL to 720p video clip",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "audio",
               "req": false,
+              "short": "URL to audio clip of the whoa",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "character",
               "req": false,
+              "short": "Character name that Keanu Reeves played",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "current_whoa_in_movie",
               "req": false,
+              "short": "The number of this whoa within the movie",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "director",
               "req": false,
+              "short": "Director of the movie",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "full_line",
               "req": false,
+              "short": "The full line of dialogue containing the whoa",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the whoa instance",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "movie",
               "req": false,
+              "short": "Title of the movie where the whoa was said",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "movie_duration",
               "req": false,
+              "short": "Total duration of the movie",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "poster",
               "req": false,
+              "short": "URL to movie poster image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "timestamp",
               "req": false,
+              "short": "Timestamp when the whoa occurs in the movie",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "total_whoas_in_movie",
               "req": false,
+              "short": "Total number of whoas in the movie",
               "type": "`$INTEGER`"
             },
             {
@@ -132,12 +147,14 @@
               "active": true,
               "name": "whoa_in_movie",
               "req": false,
+              "short": "Representation of whoa count in the movie (e.g., '1 of 5')",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "year",
               "req": false,
+              "short": "Year the movie was released",
               "type": "`$INTEGER`"
             }
           ],

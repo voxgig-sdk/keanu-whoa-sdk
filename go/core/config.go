@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "KeanuWhoa",
+			"slug": "keanu-whoa",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,62 +36,77 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "1080p",
+						"short": "URL to 1080p video clip",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "360p",
+						"short": "URL to 360p video clip",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "480p",
+						"short": "URL to 480p video clip",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "720p",
+						"short": "URL to 720p video clip",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "audio",
+						"short": "URL to audio clip of the whoa",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "character",
+						"short": "Character name that Keanu Reeves played",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "current_whoa_in_movie",
+						"short": "The number of this whoa within the movie",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "director",
+						"short": "Director of the movie",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "full_line",
+						"short": "The full line of dialogue containing the whoa",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the whoa instance",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "movie",
+						"short": "Title of the movie where the whoa was said",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "movie_duration",
+						"short": "Total duration of the movie",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "poster",
+						"short": "URL to movie poster image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "timestamp",
+						"short": "Timestamp when the whoa occurs in the movie",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "total_whoas_in_movie",
+						"short": "Total number of whoas in the movie",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -97,10 +115,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "whoa_in_movie",
+						"short": "Representation of whoa count in the movie (e.g., '1 of 5')",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "year",
+						"short": "Year the movie was released",
 						"type": "`$INTEGER`",
 					},
 				},

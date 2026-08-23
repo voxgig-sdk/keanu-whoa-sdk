@@ -8,76 +8,91 @@ main: kit: entity: whoa: {
     {
       name: "1080p"
       req: false
+      short: "URL to 1080p video clip"
       type: "`$STRING`"
     }
     {
       name: "360p"
       req: false
+      short: "URL to 360p video clip"
       type: "`$STRING`"
     }
     {
       name: "480p"
       req: false
+      short: "URL to 480p video clip"
       type: "`$STRING`"
     }
     {
       name: "720p"
       req: false
+      short: "URL to 720p video clip"
       type: "`$STRING`"
     }
     {
       name: "audio"
       req: false
+      short: "URL to audio clip of the whoa"
       type: "`$STRING`"
     }
     {
       name: "character"
       req: false
+      short: "Character name that Keanu Reeves played"
       type: "`$STRING`"
     }
     {
       name: "current_whoa_in_movie"
       req: false
+      short: "The number of this whoa within the movie"
       type: "`$INTEGER`"
     }
     {
       name: "director"
       req: false
+      short: "Director of the movie"
       type: "`$STRING`"
     }
     {
       name: "full_line"
       req: false
+      short: "The full line of dialogue containing the whoa"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the whoa instance"
       type: "`$INTEGER`"
     }
     {
       name: "movie"
       req: false
+      short: "Title of the movie where the whoa was said"
       type: "`$STRING`"
     }
     {
       name: "movie_duration"
       req: false
+      short: "Total duration of the movie"
       type: "`$STRING`"
     }
     {
       name: "poster"
       req: false
+      short: "URL to movie poster image"
       type: "`$STRING`"
     }
     {
       name: "timestamp"
       req: false
+      short: "Timestamp when the whoa occurs in the movie"
       type: "`$STRING`"
     }
     {
       name: "total_whoas_in_movie"
       req: false
+      short: "Total number of whoas in the movie"
       type: "`$INTEGER`"
     }
     {
@@ -88,11 +103,13 @@ main: kit: entity: whoa: {
     {
       name: "whoa_in_movie"
       req: false
+      short: "Representation of whoa count in the movie (e.g., '1 of 5')"
       type: "`$STRING`"
     }
     {
       name: "year"
       req: false
+      short: "Year the movie was released"
       type: "`$INTEGER`"
     }
   ]

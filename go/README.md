@@ -6,7 +6,7 @@ The Golang SDK for the KeanuWhoa API — an entity-oriented client using standar
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Whoa(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -269,24 +269,24 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"1080p"` |  |
-| `"360p"` |  |
-| `"480p"` |  |
-| `"720p"` |  |
-| `"audio"` |  |
-| `"character"` |  |
-| `"current_whoa_in_movie"` |  |
-| `"director"` |  |
-| `"full_line"` |  |
-| `"id"` |  |
-| `"movie"` |  |
-| `"movie_duration"` |  |
-| `"poster"` |  |
-| `"timestamp"` |  |
-| `"total_whoas_in_movie"` |  |
+| `"1080p"` | URL to 1080p video clip |
+| `"360p"` | URL to 360p video clip |
+| `"480p"` | URL to 480p video clip |
+| `"720p"` | URL to 720p video clip |
+| `"audio"` | URL to audio clip of the whoa |
+| `"character"` | Character name that Keanu Reeves played |
+| `"current_whoa_in_movie"` | The number of this whoa within the movie |
+| `"director"` | Director of the movie |
+| `"full_line"` | The full line of dialogue containing the whoa |
+| `"id"` | Unique identifier for the whoa instance |
+| `"movie"` | Title of the movie where the whoa was said |
+| `"movie_duration"` | Total duration of the movie |
+| `"poster"` | URL to movie poster image |
+| `"timestamp"` | Timestamp when the whoa occurs in the movie |
+| `"total_whoas_in_movie"` | Total number of whoas in the movie |
 | `"video"` |  |
-| `"whoa_in_movie"` |  |
-| `"year"` |  |
+| `"whoa_in_movie"` | Representation of whoa count in the movie (e.g., '1 of 5') |
+| `"year"` | Year the movie was released |
 
 Operations: List, Load.
 
@@ -312,24 +312,24 @@ Create an instance: `whoa := client.Whoa(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `1080p` | `string` |  |
-| `360p` | `string` |  |
-| `480p` | `string` |  |
-| `720p` | `string` |  |
-| `audio` | `string` |  |
-| `character` | `string` |  |
-| `current_whoa_in_movie` | `int` |  |
-| `director` | `string` |  |
-| `full_line` | `string` |  |
-| `id` | `int` |  |
-| `movie` | `string` |  |
-| `movie_duration` | `string` |  |
-| `poster` | `string` |  |
-| `timestamp` | `string` |  |
-| `total_whoas_in_movie` | `int` |  |
+| `1080p` | `string` | URL to 1080p video clip |
+| `360p` | `string` | URL to 360p video clip |
+| `480p` | `string` | URL to 480p video clip |
+| `720p` | `string` | URL to 720p video clip |
+| `audio` | `string` | URL to audio clip of the whoa |
+| `character` | `string` | Character name that Keanu Reeves played |
+| `current_whoa_in_movie` | `int` | The number of this whoa within the movie |
+| `director` | `string` | Director of the movie |
+| `full_line` | `string` | The full line of dialogue containing the whoa |
+| `id` | `int` | Unique identifier for the whoa instance |
+| `movie` | `string` | Title of the movie where the whoa was said |
+| `movie_duration` | `string` | Total duration of the movie |
+| `poster` | `string` | URL to movie poster image |
+| `timestamp` | `string` | Timestamp when the whoa occurs in the movie |
+| `total_whoas_in_movie` | `int` | Total number of whoas in the movie |
 | `video` | `map[string]any` |  |
-| `whoa_in_movie` | `string` |  |
-| `year` | `int` |  |
+| `whoa_in_movie` | `string` | Representation of whoa count in the movie (e.g., '1 of 5') |
+| `year` | `int` | Year the movie was released |
 
 #### Example: Load
 

@@ -253,24 +253,24 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `1080p` |  |
-| `360p` |  |
-| `480p` |  |
-| `720p` |  |
-| `audio` |  |
-| `character` |  |
-| `current_whoa_in_movie` |  |
-| `director` |  |
-| `full_line` |  |
-| `id` |  |
-| `movie` |  |
-| `movie_duration` |  |
-| `poster` |  |
-| `timestamp` |  |
-| `total_whoas_in_movie` |  |
+| `1080p` | URL to 1080p video clip |
+| `360p` | URL to 360p video clip |
+| `480p` | URL to 480p video clip |
+| `720p` | URL to 720p video clip |
+| `audio` | URL to audio clip of the whoa |
+| `character` | Character name that Keanu Reeves played |
+| `current_whoa_in_movie` | The number of this whoa within the movie |
+| `director` | Director of the movie |
+| `full_line` | The full line of dialogue containing the whoa |
+| `id` | Unique identifier for the whoa instance |
+| `movie` | Title of the movie where the whoa was said |
+| `movie_duration` | Total duration of the movie |
+| `poster` | URL to movie poster image |
+| `timestamp` | Timestamp when the whoa occurs in the movie |
+| `total_whoas_in_movie` | Total number of whoas in the movie |
 | `video` |  |
-| `whoa_in_movie` |  |
-| `year` |  |
+| `whoa_in_movie` | Representation of whoa count in the movie (e.g., '1 of 5') |
+| `year` | Year the movie was released |
 
 Operations: List, Load.
 
@@ -296,24 +296,24 @@ Create an instance: `whoa = client.Whoa`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `1080p` | `String` |  |
-| `360p` | `String` |  |
-| `480p` | `String` |  |
-| `720p` | `String` |  |
-| `audio` | `String` |  |
-| `character` | `String` |  |
-| `current_whoa_in_movie` | `Integer` |  |
-| `director` | `String` |  |
-| `full_line` | `String` |  |
-| `id` | `Integer` |  |
-| `movie` | `String` |  |
-| `movie_duration` | `String` |  |
-| `poster` | `String` |  |
-| `timestamp` | `String` |  |
-| `total_whoas_in_movie` | `Integer` |  |
+| `1080p` | `String` | URL to 1080p video clip |
+| `360p` | `String` | URL to 360p video clip |
+| `480p` | `String` | URL to 480p video clip |
+| `720p` | `String` | URL to 720p video clip |
+| `audio` | `String` | URL to audio clip of the whoa |
+| `character` | `String` | Character name that Keanu Reeves played |
+| `current_whoa_in_movie` | `Integer` | The number of this whoa within the movie |
+| `director` | `String` | Director of the movie |
+| `full_line` | `String` | The full line of dialogue containing the whoa |
+| `id` | `Integer` | Unique identifier for the whoa instance |
+| `movie` | `String` | Title of the movie where the whoa was said |
+| `movie_duration` | `String` | Total duration of the movie |
+| `poster` | `String` | URL to movie poster image |
+| `timestamp` | `String` | Timestamp when the whoa occurs in the movie |
+| `total_whoas_in_movie` | `Integer` | Total number of whoas in the movie |
 | `video` | `Hash` |  |
-| `whoa_in_movie` | `String` |  |
-| `year` | `Integer` |  |
+| `whoa_in_movie` | `String` | Representation of whoa count in the movie (e.g., '1 of 5') |
+| `year` | `Integer` | Year the movie was released |
 
 #### Example: Load
 

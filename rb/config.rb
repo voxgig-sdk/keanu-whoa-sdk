@@ -28,6 +28,7 @@ module KeanuWhoaConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {

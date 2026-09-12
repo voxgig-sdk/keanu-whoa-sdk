@@ -147,6 +147,10 @@ class KeanuWhoaConfig
               'type' => '`$INTEGER`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'whoa',
           'op' => [
             'list' => [
@@ -158,13 +162,18 @@ class KeanuWhoaConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/whoas',
-                  'parts' => [
-                    'whoas',
+                  'segments' => [
+                    [
+                      'lit' => 'whoas',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'whoas',
                   ],
                 ],
               ],
@@ -188,9 +197,13 @@ class KeanuWhoaConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/whoas/{id}',
-                  'parts' => [
-                    'whoas',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'whoas',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -201,15 +214,23 @@ class KeanuWhoaConfig
                     'req' => '`reqdata`',
                     'res' => '`body.video`',
                   ],
+                  'parts' => [
+                    'whoas',
+                    '{id}',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/whoas/random',
-                  'parts' => [
-                    'whoas',
-                    'random',
+                  'segments' => [
+                    [
+                      'lit' => 'whoas',
+                    ],
+                    [
+                      'lit' => 'random',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'random',
@@ -217,6 +238,10 @@ class KeanuWhoaConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.video`',
+                  ],
+                  'parts' => [
+                    'whoas',
+                    'random',
                   ],
                 ],
               ],

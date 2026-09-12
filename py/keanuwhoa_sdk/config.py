@@ -1,6 +1,14 @@
 # KeanuWhoa SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -142,6 +150,10 @@ def make_config():
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "whoa",
         "op": {
           "list": {
@@ -153,14 +165,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/whoas",
-                "parts": [
-                  "whoas",
+                "segments": [
+                  {
+                    "lit": "whoas",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "whoas",
+                ],
               },
             ],
           },
@@ -183,9 +200,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/whoas/{id}",
-                "parts": [
-                  "whoas",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "whoas",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -196,15 +217,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.video`",
                 },
+                "parts": [
+                  "whoas",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/whoas/random",
-                "parts": [
-                  "whoas",
-                  "random",
+                "segments": [
+                  {
+                    "lit": "whoas",
+                  },
+                  {
+                    "lit": "random",
+                  },
                 ],
                 "select": {
                   "$action": "random",
@@ -213,6 +242,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.video`",
                 },
+                "parts": [
+                  "whoas",
+                  "random",
+                ],
               },
             ],
           },

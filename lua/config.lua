@@ -121,6 +121,10 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "whoa",
         ["op"] = {
           ["list"] = {
@@ -132,13 +136,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/whoas",
-                ["parts"] = {
-                  "whoas",
+                ["segments"] = {
+                  {
+                    ["lit"] = "whoas",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "whoas",
                 },
               },
             },
@@ -162,9 +171,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/whoas/{id}",
-                ["parts"] = {
-                  "whoas",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "whoas",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -175,15 +188,23 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.video`",
                 },
+                ["parts"] = {
+                  "whoas",
+                  "{id}",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/whoas/random",
-                ["parts"] = {
-                  "whoas",
-                  "random",
+                ["segments"] = {
+                  {
+                    ["lit"] = "whoas",
+                  },
+                  {
+                    ["lit"] = "random",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "random",
@@ -191,6 +212,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.video`",
+                },
+                ["parts"] = {
+                  "whoas",
+                  "random",
                 },
               },
             },

@@ -127,8 +127,10 @@ main: kit: entity: whoa: {
         {
           method: "GET"
           orig: "/whoas"
-          parts: [
-            "whoas"
+          segments: [
+            {
+              lit: "whoas"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -154,9 +156,13 @@ main: kit: entity: whoa: {
           }
           method: "GET"
           orig: "/whoas/{id}"
-          parts: [
-            "whoas"
-            "{id}"
+          segments: [
+            {
+              lit: "whoas"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -171,9 +177,13 @@ main: kit: entity: whoa: {
         {
           method: "GET"
           orig: "/whoas/random"
-          parts: [
-            "whoas"
-            "random"
+          segments: [
+            {
+              lit: "whoas"
+            }
+            {
+              lit: "random"
+            }
           ]
           select: {
             "$action": "random"

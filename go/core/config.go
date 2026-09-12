@@ -125,6 +125,10 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "whoa",
 				"op": map[string]any{
 					"list": map[string]any{
@@ -136,13 +140,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/whoas",
-								"parts": []any{
-									"whoas",
+								"segments": []any{
+									map[string]any{
+										"lit": "whoas",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"whoas",
 								},
 							},
 						},
@@ -166,9 +175,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/whoas/{id}",
-								"parts": []any{
-									"whoas",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "whoas",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -179,15 +192,23 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.video`",
 								},
+								"parts": []any{
+									"whoas",
+									"{id}",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/whoas/random",
-								"parts": []any{
-									"whoas",
-									"random",
+								"segments": []any{
+									map[string]any{
+										"lit": "whoas",
+									},
+									map[string]any{
+										"lit": "random",
+									},
 								},
 								"select": map[string]any{
 									"$action": "random",
@@ -195,6 +216,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.video`",
+								},
+								"parts": []any{
+									"whoas",
+									"random",
 								},
 							},
 						},
@@ -206,6 +231,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

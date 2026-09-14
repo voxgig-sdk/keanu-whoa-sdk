@@ -105,7 +105,7 @@ local results, err = client:Whoa():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases) |
+| TypeScript | `@voxgig-sdk/keanu-whoa-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases) |
 | Python | `voxgig-sdk-keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases) |
 | PHP | `voxgig-sdk/keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/keanu-whoa-sdk/go` | `go get github.com/voxgig-sdk/keanu-whoa-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Whoa():list()
 ### TypeScript
 
 ```ts
-import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa'
+import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa-sdk'
 
 const client = new KeanuWhoaSDK()
 

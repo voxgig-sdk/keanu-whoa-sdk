@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa'
+import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa-sdk'
 
 const client = new KeanuWhoaSDK()
 ```
@@ -459,7 +459,7 @@ keanu-whoa/
 Import the SDK from the package root:
 
 ```ts
-import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa'
+import { KeanuWhoaSDK } from '@voxgig-sdk/keanu-whoa-sdk'
 ```
 
 ### Entity state

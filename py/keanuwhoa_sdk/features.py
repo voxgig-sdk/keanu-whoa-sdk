@@ -1,12 +1,18 @@
 # KeanuWhoa SDK feature factory
 
 from keanuwhoa_sdk.feature.base_feature import KeanuWhoaBaseFeature
+from keanuwhoa_sdk.feature.ratelimit_feature import KeanuWhoaRatelimitFeature
+from keanuwhoa_sdk.feature.retry_feature import KeanuWhoaRetryFeature
 from keanuwhoa_sdk.feature.test_feature import KeanuWhoaTestFeature
+from keanuwhoa_sdk.feature.timeout_feature import KeanuWhoaTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: KeanuWhoaBaseFeature(),
+    "ratelimit": lambda: KeanuWhoaRatelimitFeature(),
+    "retry": lambda: KeanuWhoaRetryFeature(),
     "test": lambda: KeanuWhoaTestFeature(),
+    "timeout": lambda: KeanuWhoaTimeoutFeature(),
 }
 
 

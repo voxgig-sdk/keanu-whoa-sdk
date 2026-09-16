@@ -8,7 +8,7 @@
         "720p": "sb7",
         "audio": "sb8",
         "character": "sb9",
-        "current_whoa_in_movie": "sba",
+        "current_whoa_in_movie": 186,
         "director": "sbb",
         "full_line": "sbc",
         "id": "WHOA00",
@@ -16,10 +16,10 @@
         "movie_duration": "sbf",
         "poster": "sc0",
         "timestamp": "sc1",
-        "total_whoas_in_movie": "sc2",
+        "total_whoas_in_movie": 194,
         "video": {},
         "whoa_in_movie": "sc4",
-        "year": "sc5"
+        "year": 197
       },
       "WHOA01": {
         "1080p": "s168",
@@ -28,7 +28,7 @@
         "720p": "s16b",
         "audio": "s16c",
         "character": "s16d",
-        "current_whoa_in_movie": "s16e",
+        "current_whoa_in_movie": 366,
         "director": "s16f",
         "full_line": "s170",
         "id": "WHOA01",
@@ -36,10 +36,10 @@
         "movie_duration": "s173",
         "poster": "s174",
         "timestamp": "s175",
-        "total_whoas_in_movie": "s176",
+        "total_whoas_in_movie": 374,
         "video": {},
         "whoa_in_movie": "s178",
-        "year": "s179"
+        "year": 377
       },
       "WHOA02": {
         "1080p": "s21c",
@@ -48,7 +48,7 @@
         "720p": "s21f",
         "audio": "s220",
         "character": "s221",
-        "current_whoa_in_movie": "s222",
+        "current_whoa_in_movie": 546,
         "director": "s223",
         "full_line": "s224",
         "id": "WHOA02",
@@ -56,10 +56,10 @@
         "movie_duration": "s227",
         "poster": "s228",
         "timestamp": "s229",
-        "total_whoas_in_movie": "s22a",
+        "total_whoas_in_movie": 554,
         "video": {},
         "whoa_in_movie": "s22c",
-        "year": "s22d"
+        "year": 557
       }
     }
   },
@@ -72,17 +72,323 @@
         "720p": "s2d3",
         "audio": "s2d4",
         "character": "s2d5",
-        "current_whoa_in_movie": "s2d6",
+        "current_whoa_in_movie": 726,
         "director": "s2d7",
         "full_line": "s2d8",
         "movie": "s2da",
         "movie_duration": "s2db",
         "poster": "s2dc",
         "timestamp": "s2dd",
-        "total_whoas_in_movie": "s2de",
+        "total_whoas_in_movie": 734,
         "video": {},
         "whoa_in_movie": "s2e0",
-        "year": "s2e1"
+        "year": 737
+      }
+    }
+  },
+  "requests": {
+    "GET /whoas": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllWhoas",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "audio": {
+                        "description": "URL to audio clip of the whoa",
+                        "type": "string"
+                      },
+                      "character": {
+                        "description": "Character name that Keanu Reeves played",
+                        "type": "string"
+                      },
+                      "current_whoa_in_movie": {
+                        "description": "The number of this whoa within the movie",
+                        "type": "integer"
+                      },
+                      "director": {
+                        "description": "Director of the movie",
+                        "type": "string"
+                      },
+                      "full_line": {
+                        "description": "The full line of dialogue containing the whoa",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Unique identifier for the whoa instance",
+                        "type": "integer"
+                      },
+                      "movie": {
+                        "description": "Title of the movie where the whoa was said",
+                        "type": "string"
+                      },
+                      "movie_duration": {
+                        "description": "Total duration of the movie",
+                        "type": "string"
+                      },
+                      "poster": {
+                        "description": "URL to movie poster image",
+                        "type": "string"
+                      },
+                      "timestamp": {
+                        "description": "Timestamp when the whoa occurs in the movie",
+                        "type": "string"
+                      },
+                      "total_whoas_in_movie": {
+                        "description": "Total number of whoas in the movie",
+                        "type": "integer"
+                      },
+                      "video": {
+                        "properties": {
+                          "1080p": {
+                            "description": "URL to 1080p video clip",
+                            "type": "string"
+                          },
+                          "360p": {
+                            "description": "URL to 360p video clip",
+                            "type": "string"
+                          },
+                          "480p": {
+                            "description": "URL to 480p video clip",
+                            "type": "string"
+                          },
+                          "720p": {
+                            "description": "URL to 720p video clip",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "whoa_in_movie": {
+                        "description": "Representation of whoa count in the movie (e.g., '1 of 5')",
+                        "type": "string"
+                      },
+                      "year": {
+                        "description": "Year the movie was released",
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /whoas/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getWhoaById",
+        "parameters": [
+          {
+            "description": "The ID of the whoa instance",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "audio": {
+                      "description": "URL to audio clip of the whoa",
+                      "type": "string"
+                    },
+                    "character": {
+                      "description": "Character name that Keanu Reeves played",
+                      "type": "string"
+                    },
+                    "current_whoa_in_movie": {
+                      "description": "The number of this whoa within the movie",
+                      "type": "integer"
+                    },
+                    "director": {
+                      "description": "Director of the movie",
+                      "type": "string"
+                    },
+                    "full_line": {
+                      "description": "The full line of dialogue containing the whoa",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the whoa instance",
+                      "type": "integer"
+                    },
+                    "movie": {
+                      "description": "Title of the movie where the whoa was said",
+                      "type": "string"
+                    },
+                    "movie_duration": {
+                      "description": "Total duration of the movie",
+                      "type": "string"
+                    },
+                    "poster": {
+                      "description": "URL to movie poster image",
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "description": "Timestamp when the whoa occurs in the movie",
+                      "type": "string"
+                    },
+                    "total_whoas_in_movie": {
+                      "description": "Total number of whoas in the movie",
+                      "type": "integer"
+                    },
+                    "video": {
+                      "properties": {
+                        "1080p": {
+                          "description": "URL to 1080p video clip",
+                          "type": "string"
+                        },
+                        "360p": {
+                          "description": "URL to 360p video clip",
+                          "type": "string"
+                        },
+                        "480p": {
+                          "description": "URL to 480p video clip",
+                          "type": "string"
+                        },
+                        "720p": {
+                          "description": "URL to 720p video clip",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "whoa_in_movie": {
+                      "description": "Representation of whoa count in the movie (e.g., '1 of 5')",
+                      "type": "string"
+                    },
+                    "year": {
+                      "description": "Year the movie was released",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Whoa not found"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /whoas/random": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getRandomWhoa",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "audio": {
+                      "description": "URL to audio clip of the whoa",
+                      "type": "string"
+                    },
+                    "character": {
+                      "description": "Character name that Keanu Reeves played",
+                      "type": "string"
+                    },
+                    "current_whoa_in_movie": {
+                      "description": "The number of this whoa within the movie",
+                      "type": "integer"
+                    },
+                    "director": {
+                      "description": "Director of the movie",
+                      "type": "string"
+                    },
+                    "full_line": {
+                      "description": "The full line of dialogue containing the whoa",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the whoa instance",
+                      "type": "integer"
+                    },
+                    "movie": {
+                      "description": "Title of the movie where the whoa was said",
+                      "type": "string"
+                    },
+                    "movie_duration": {
+                      "description": "Total duration of the movie",
+                      "type": "string"
+                    },
+                    "poster": {
+                      "description": "URL to movie poster image",
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "description": "Timestamp when the whoa occurs in the movie",
+                      "type": "string"
+                    },
+                    "total_whoas_in_movie": {
+                      "description": "Total number of whoas in the movie",
+                      "type": "integer"
+                    },
+                    "video": {
+                      "properties": {
+                        "1080p": {
+                          "description": "URL to 1080p video clip",
+                          "type": "string"
+                        },
+                        "360p": {
+                          "description": "URL to 360p video clip",
+                          "type": "string"
+                        },
+                        "480p": {
+                          "description": "URL to 480p video clip",
+                          "type": "string"
+                        },
+                        "720p": {
+                          "description": "URL to 720p video clip",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "whoa_in_movie": {
+                      "description": "Representation of whoa count in the movie (e.g., '1 of 5')",
+                      "type": "string"
+                    },
+                    "year": {
+                      "description": "Year the movie was released",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

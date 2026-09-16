@@ -125,6 +125,12 @@ main: kit: entity: whoa: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /whoas"
+            json: "{\"operationId\":\"getAllWhoas\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"audio\":{\"description\":\"URL to audio clip of the whoa\",\"type\":\"string\"},\"character\":{\"description\":\"Character name that Keanu Reeves played\",\"type\":\"string\"},\"current_whoa_in_movie\":{\"description\":\"The number of this whoa within the movie\",\"type\":\"integer\"},\"director\":{\"description\":\"Director of the movie\",\"type\":\"string\"},\"full_line\":{\"description\":\"The full line of dialogue containing the whoa\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the whoa instance\",\"type\":\"integer\"},\"movie\":{\"description\":\"Title of the movie where the whoa was said\",\"type\":\"string\"},\"movie_duration\":{\"description\":\"Total duration of the movie\",\"type\":\"string\"},\"poster\":{\"description\":\"URL to movie poster image\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp when the whoa occurs in the movie\",\"type\":\"string\"},\"total_whoas_in_movie\":{\"description\":\"Total number of whoas in the movie\",\"type\":\"integer\"},\"video\":{\"properties\":{\"1080p\":{\"description\":\"URL to 1080p video clip\",\"type\":\"string\"},\"360p\":{\"description\":\"URL to 360p video clip\",\"type\":\"string\"},\"480p\":{\"description\":\"URL to 480p video clip\",\"type\":\"string\"},\"720p\":{\"description\":\"URL to 720p video clip\",\"type\":\"string\"}},\"type\":\"object\"},\"whoa_in_movie\":{\"description\":\"Representation of whoa count in the movie (e.g., '1 of 5')\",\"type\":\"string\"},\"year\":{\"description\":\"Year the movie was released\",\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/whoas"
           segments: [
@@ -154,6 +160,12 @@ main: kit: entity: whoa: {
               }
             ]
           }
+          contract: {
+            id: "GET /whoas/{id}"
+            json: "{\"operationId\":\"getWhoaById\",\"parameters\":[{\"description\":\"The ID of the whoa instance\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"audio\":{\"description\":\"URL to audio clip of the whoa\",\"type\":\"string\"},\"character\":{\"description\":\"Character name that Keanu Reeves played\",\"type\":\"string\"},\"current_whoa_in_movie\":{\"description\":\"The number of this whoa within the movie\",\"type\":\"integer\"},\"director\":{\"description\":\"Director of the movie\",\"type\":\"string\"},\"full_line\":{\"description\":\"The full line of dialogue containing the whoa\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the whoa instance\",\"type\":\"integer\"},\"movie\":{\"description\":\"Title of the movie where the whoa was said\",\"type\":\"string\"},\"movie_duration\":{\"description\":\"Total duration of the movie\",\"type\":\"string\"},\"poster\":{\"description\":\"URL to movie poster image\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp when the whoa occurs in the movie\",\"type\":\"string\"},\"total_whoas_in_movie\":{\"description\":\"Total number of whoas in the movie\",\"type\":\"integer\"},\"video\":{\"properties\":{\"1080p\":{\"description\":\"URL to 1080p video clip\",\"type\":\"string\"},\"360p\":{\"description\":\"URL to 360p video clip\",\"type\":\"string\"},\"480p\":{\"description\":\"URL to 480p video clip\",\"type\":\"string\"},\"720p\":{\"description\":\"URL to 720p video clip\",\"type\":\"string\"}},\"type\":\"object\"},\"whoa_in_movie\":{\"description\":\"Representation of whoa count in the movie (e.g., '1 of 5')\",\"type\":\"string\"},\"year\":{\"description\":\"Year the movie was released\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"Whoa not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/whoas/{id}"
           segments: [
@@ -175,6 +187,12 @@ main: kit: entity: whoa: {
           }
         }
         {
+          contract: {
+            id: "GET /whoas/random"
+            json: "{\"operationId\":\"getRandomWhoa\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"audio\":{\"description\":\"URL to audio clip of the whoa\",\"type\":\"string\"},\"character\":{\"description\":\"Character name that Keanu Reeves played\",\"type\":\"string\"},\"current_whoa_in_movie\":{\"description\":\"The number of this whoa within the movie\",\"type\":\"integer\"},\"director\":{\"description\":\"Director of the movie\",\"type\":\"string\"},\"full_line\":{\"description\":\"The full line of dialogue containing the whoa\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the whoa instance\",\"type\":\"integer\"},\"movie\":{\"description\":\"Title of the movie where the whoa was said\",\"type\":\"string\"},\"movie_duration\":{\"description\":\"Total duration of the movie\",\"type\":\"string\"},\"poster\":{\"description\":\"URL to movie poster image\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp when the whoa occurs in the movie\",\"type\":\"string\"},\"total_whoas_in_movie\":{\"description\":\"Total number of whoas in the movie\",\"type\":\"integer\"},\"video\":{\"properties\":{\"1080p\":{\"description\":\"URL to 1080p video clip\",\"type\":\"string\"},\"360p\":{\"description\":\"URL to 360p video clip\",\"type\":\"string\"},\"480p\":{\"description\":\"URL to 480p video clip\",\"type\":\"string\"},\"720p\":{\"description\":\"URL to 720p video clip\",\"type\":\"string\"}},\"type\":\"object\"},\"whoa_in_movie\":{\"description\":\"Representation of whoa count in the movie (e.g., '1 of 5')\",\"type\":\"string\"},\"year\":{\"description\":\"Year the movie was released\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/whoas/random"
           segments: [

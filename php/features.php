@@ -4,7 +4,10 @@ declare(strict_types=1);
 // KeanuWhoa SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class KeanuWhoaFeatures
@@ -14,8 +17,14 @@ class KeanuWhoaFeatures
         switch ($name) {
             case "base":
                 return new KeanuWhoaBaseFeature();
+            case "ratelimit":
+                return new KeanuWhoaRatelimitFeature();
+            case "retry":
+                return new KeanuWhoaRetryFeature();
             case "test":
                 return new KeanuWhoaTestFeature();
+            case "timeout":
+                return new KeanuWhoaTimeoutFeature();
             default:
                 return new KeanuWhoaBaseFeature();
         }
@@ -31,7 +40,10 @@ class KeanuWhoaFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

@@ -105,12 +105,12 @@ local results, err = client:Whoa():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/keanu-whoa-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases) |
-| Python | `voxgig-sdk-keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases) |
-| PHP | `voxgig-sdk/keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases) |
+| TypeScript | `@voxgig-sdk/keanu-whoa-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/tags) |
+| Python | `voxgig-sdk-keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/tags) |
+| PHP | `voxgig-sdk/keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/keanu-whoa-sdk/go` | `go get github.com/voxgig-sdk/keanu-whoa-sdk/go@latest` |
-| Ruby | `voxgig-sdk-keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases) |
-| Lua | `voxgig-sdk-keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases) |
+| Ruby | `voxgig-sdk-keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/tags) |
+| Lua | `voxgig-sdk-keanu-whoa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/keanu-whoa-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/keanu-whoa-sdk/go-cli` | `go install github.com/voxgig-sdk/keanu-whoa-sdk/go-cli/cmd/keanu-whoa@latest` |
 | Go MCP server | `github.com/voxgig-sdk/keanu-whoa-sdk/go-mcp` | `go get github.com/voxgig-sdk/keanu-whoa-sdk/go-mcp@latest` |
 

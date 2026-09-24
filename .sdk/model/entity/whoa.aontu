@@ -1,0 +1,235 @@
+# Entity: whoa
+
+main: kit: entity: whoa: {
+
+  alias: field: {}
+
+  fields: {
+    "1080p": {
+      h: "1080p"
+      n: "1080p"
+      r: false
+      sh: "URL to 1080p video clip"
+      t: "`$STRING`"
+    }
+    "360p": {
+      h: "360p"
+      n: "360p"
+      r: false
+      sh: "URL to 360p video clip"
+      t: "`$STRING`"
+    }
+    "480p": {
+      h: "480p"
+      n: "480p"
+      r: false
+      sh: "URL to 480p video clip"
+      t: "`$STRING`"
+    }
+    "720p": {
+      h: "720p"
+      n: "720p"
+      r: false
+      sh: "URL to 720p video clip"
+      t: "`$STRING`"
+    }
+    audio: {
+      h: "Audio"
+      n: "audio"
+      r: false
+      sh: "URL to audio clip of the whoa"
+      t: "`$STRING`"
+    }
+    character: {
+      h: "Character"
+      n: "character"
+      r: false
+      sh: "Character name that Keanu Reeves played"
+      t: "`$STRING`"
+    }
+    current_whoa_in_movie: {
+      h: "Current Whoa In Movie"
+      n: "current_whoa_in_movie"
+      r: false
+      sh: "The number of this whoa within the movie"
+      t: "`$INTEGER`"
+    }
+    director: {
+      h: "Director"
+      n: "director"
+      r: false
+      sh: "Director of the movie"
+      t: "`$STRING`"
+    }
+    full_line: {
+      h: "Full Line"
+      n: "full_line"
+      r: false
+      sh: "The full line of dialogue containing the whoa"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the whoa instance"
+      t: "`$INTEGER`"
+    }
+    movie: {
+      h: "Movie"
+      n: "movie"
+      r: false
+      sh: "Title of the movie where the whoa was said"
+      t: "`$STRING`"
+    }
+    movie_duration: {
+      h: "Movie Duration"
+      n: "movie_duration"
+      r: false
+      sh: "Total duration of the movie"
+      t: "`$STRING`"
+    }
+    poster: {
+      h: "Poster"
+      n: "poster"
+      r: false
+      sh: "URL to movie poster image"
+      t: "`$STRING`"
+    }
+    timestamp: {
+      h: "Timestamp"
+      n: "timestamp"
+      r: false
+      sh: "Timestamp when the whoa occurs in the movie"
+      t: "`$STRING`"
+    }
+    total_whoas_in_movie: {
+      h: "Total Whoas In Movie"
+      n: "total_whoas_in_movie"
+      r: false
+      sh: "Total number of whoas in the movie"
+      t: "`$INTEGER`"
+    }
+    video: {
+      h: "Video"
+      n: "video"
+      r: false
+      t: "`$OBJECT`"
+    }
+    whoa_in_movie: {
+      h: "Whoa In Movie"
+      n: "whoa_in_movie"
+      r: false
+      sh: "Representation of whoa count in the movie (e.g., '1 of 5')"
+      t: "`$STRING`"
+    }
+    year: {
+      h: "Year"
+      n: "year"
+      r: false
+      sh: "Year the movie was released"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "whoa"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /whoas"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/whoas"
+          s: [
+            {
+              lit: "whoas"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /whoas/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/whoas/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "whoas"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.video`"
+          }
+        }
+        {
+          co: {
+            id: "GET /whoas/random"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/whoas/random"
+          q: {
+            "$action": "random"
+          }
+          s: [
+            {
+              lit: "whoas"
+            }
+            {
+              lit: "random"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.video`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

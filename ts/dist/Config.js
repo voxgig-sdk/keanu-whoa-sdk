@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,92 +107,110 @@ class Config {
             "fields": [
                 {
                     "name": "1080p",
-                    "short": "URL to 1080p video clip",
-                    "type": "`$STRING`"
+                    "title": "1080p",
+                    "type": "`$STRING`",
+                    "short": "URL to 1080p video clip"
                 },
                 {
                     "name": "360p",
-                    "short": "URL to 360p video clip",
-                    "type": "`$STRING`"
+                    "title": "360p",
+                    "type": "`$STRING`",
+                    "short": "URL to 360p video clip"
                 },
                 {
                     "name": "480p",
-                    "short": "URL to 480p video clip",
-                    "type": "`$STRING`"
+                    "title": "480p",
+                    "type": "`$STRING`",
+                    "short": "URL to 480p video clip"
                 },
                 {
                     "name": "720p",
-                    "short": "URL to 720p video clip",
-                    "type": "`$STRING`"
+                    "title": "720p",
+                    "type": "`$STRING`",
+                    "short": "URL to 720p video clip"
                 },
                 {
                     "name": "audio",
-                    "short": "URL to audio clip of the whoa",
-                    "type": "`$STRING`"
+                    "title": "Audio",
+                    "type": "`$STRING`",
+                    "short": "URL to audio clip of the whoa"
                 },
                 {
                     "name": "character",
-                    "short": "Character name that Keanu Reeves played",
-                    "type": "`$STRING`"
+                    "title": "Character",
+                    "type": "`$STRING`",
+                    "short": "Character name that Keanu Reeves played"
                 },
                 {
                     "name": "current_whoa_in_movie",
-                    "short": "The number of this whoa within the movie",
-                    "type": "`$INTEGER`"
+                    "title": "Current Whoa In Movie",
+                    "type": "`$INTEGER`",
+                    "short": "The number of this whoa within the movie"
                 },
                 {
                     "name": "director",
-                    "short": "Director of the movie",
-                    "type": "`$STRING`"
+                    "title": "Director",
+                    "type": "`$STRING`",
+                    "short": "Director of the movie"
                 },
                 {
                     "name": "full_line",
-                    "short": "The full line of dialogue containing the whoa",
-                    "type": "`$STRING`"
+                    "title": "Full Line",
+                    "type": "`$STRING`",
+                    "short": "The full line of dialogue containing the whoa"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the whoa instance",
-                    "type": "`$INTEGER`"
+                    "title": "Id",
+                    "type": "`$INTEGER`",
+                    "short": "Unique identifier for the whoa instance"
                 },
                 {
                     "name": "movie",
-                    "short": "Title of the movie where the whoa was said",
-                    "type": "`$STRING`"
+                    "title": "Movie",
+                    "type": "`$STRING`",
+                    "short": "Title of the movie where the whoa was said"
                 },
                 {
                     "name": "movie_duration",
-                    "short": "Total duration of the movie",
-                    "type": "`$STRING`"
+                    "title": "Movie Duration",
+                    "type": "`$STRING`",
+                    "short": "Total duration of the movie"
                 },
                 {
                     "name": "poster",
-                    "short": "URL to movie poster image",
-                    "type": "`$STRING`"
+                    "title": "Poster",
+                    "type": "`$STRING`",
+                    "short": "URL to movie poster image"
                 },
                 {
                     "name": "timestamp",
-                    "short": "Timestamp when the whoa occurs in the movie",
-                    "type": "`$STRING`"
+                    "title": "Timestamp",
+                    "type": "`$STRING`",
+                    "short": "Timestamp when the whoa occurs in the movie"
                 },
                 {
                     "name": "total_whoas_in_movie",
-                    "short": "Total number of whoas in the movie",
-                    "type": "`$INTEGER`"
+                    "title": "Total Whoas In Movie",
+                    "type": "`$INTEGER`",
+                    "short": "Total number of whoas in the movie"
                 },
                 {
                     "name": "video",
+                    "title": "Video",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "whoa_in_movie",
-                    "short": "Representation of whoa count in the movie (e.g., '1 of 5')",
-                    "type": "`$STRING`"
+                    "title": "Whoa In Movie",
+                    "type": "`$STRING`",
+                    "short": "Representation of whoa count in the movie (e.g., '1 of 5')"
                 },
                 {
                     "name": "year",
-                    "short": "Year the movie was released",
-                    "type": "`$INTEGER`"
+                    "title": "Year",
+                    "type": "`$INTEGER`",
+                    "short": "Year the movie was released"
                 }
             ],
             "id": {
@@ -213,7 +224,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/whoas",
@@ -222,14 +232,16 @@ class Config {
                                     "lit": "whoas"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "whoas"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "whoas"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 },
@@ -238,17 +250,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$INTEGER`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/whoas/{id}",
@@ -260,22 +261,33 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
-                            },
+                            "parts": [
+                                "whoas",
+                                "{id}"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.video`"
                             },
-                            "parts": [
-                                "whoas",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$INTEGER`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/whoas/random",
@@ -287,17 +299,19 @@ class Config {
                                     "lit": "random"
                                 }
                             ],
-                            "select": {
-                                "$action": "random"
-                            },
+                            "parts": [
+                                "whoas",
+                                "random"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.video`"
                             },
-                            "parts": [
-                                "whoas",
-                                "random"
-                            ]
+                            "args": {},
+                            "select": {
+                                "$action": "random"
+                            }
                         }
                     ]
                 }

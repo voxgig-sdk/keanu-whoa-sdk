@@ -1,7 +1,7 @@
 // Typed models for the KeanuWhoa SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,24 +14,6 @@ import (
 
 // Whoa is the typed data model for the whoa entity.
 type Whoa struct {
-	F1080p *string `json:"1080p,omitempty"`
-	F360p *string `json:"360p,omitempty"`
-	F480p *string `json:"480p,omitempty"`
-	F720p *string `json:"720p,omitempty"`
-	Audio *string `json:"audio,omitempty"`
-	Character *string `json:"character,omitempty"`
-	CurrentWhoaInMovie *int `json:"current_whoa_in_movie,omitempty"`
-	Director *string `json:"director,omitempty"`
-	FullLine *string `json:"full_line,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Movie *string `json:"movie,omitempty"`
-	MovieDuration *string `json:"movie_duration,omitempty"`
-	Poster *string `json:"poster,omitempty"`
-	Timestamp *string `json:"timestamp,omitempty"`
-	TotalWhoasInMovie *int `json:"total_whoas_in_movie,omitempty"`
-	Video *map[string]any `json:"video,omitempty"`
-	WhoaInMovie *string `json:"whoa_in_movie,omitempty"`
-	Year *int `json:"year,omitempty"`
 }
 
 // WhoaLoadMatch is the typed request payload for Whoa.LoadTyped.

@@ -24,139 +24,223 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "whoa": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "1080p",
-              "req": false,
-              "short": "URL to 1080p video clip",
-              "type": "`$STRING`"
+          "fields": {
+            "1080p": {
+              "a": true,
+              "h": "1080p",
+              "n": "1080p",
+              "r": false,
+              "sh": "URL to 1080p video clip",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "360p",
-              "req": false,
-              "short": "URL to 360p video clip",
-              "type": "`$STRING`"
+            "360p": {
+              "a": true,
+              "h": "360p",
+              "n": "360p",
+              "r": false,
+              "sh": "URL to 360p video clip",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "480p",
-              "req": false,
-              "short": "URL to 480p video clip",
-              "type": "`$STRING`"
+            "480p": {
+              "a": true,
+              "h": "480p",
+              "n": "480p",
+              "r": false,
+              "sh": "URL to 480p video clip",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "720p",
-              "req": false,
-              "short": "URL to 720p video clip",
-              "type": "`$STRING`"
+            "720p": {
+              "a": true,
+              "h": "720p",
+              "n": "720p",
+              "r": false,
+              "sh": "URL to 720p video clip",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "audio",
-              "req": false,
-              "short": "URL to audio clip of the whoa",
-              "type": "`$STRING`"
+            "audio": {
+              "a": true,
+              "h": "Audio",
+              "n": "audio",
+              "r": false,
+              "sh": "URL to audio clip of the whoa",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "character",
-              "req": false,
-              "short": "Character name that Keanu Reeves played",
-              "type": "`$STRING`"
+            "character": {
+              "a": true,
+              "h": "Character",
+              "n": "character",
+              "r": false,
+              "sh": "Character name that Keanu Reeves played",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "current_whoa_in_movie",
-              "req": false,
-              "short": "The number of this whoa within the movie",
-              "type": "`$INTEGER`"
+            "current_whoa_in_movie": {
+              "a": true,
+              "h": "Current Whoa In Movie",
+              "n": "current_whoa_in_movie",
+              "r": false,
+              "sh": "The number of this whoa within the movie",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "director",
-              "req": false,
-              "short": "Director of the movie",
-              "type": "`$STRING`"
+            "director": {
+              "a": true,
+              "h": "Director",
+              "n": "director",
+              "r": false,
+              "sh": "Director of the movie",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "full_line",
-              "req": false,
-              "short": "The full line of dialogue containing the whoa",
-              "type": "`$STRING`"
+            "full_line": {
+              "a": true,
+              "h": "Full Line",
+              "n": "full_line",
+              "r": false,
+              "sh": "The full line of dialogue containing the whoa",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the whoa instance",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the whoa instance",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "movie",
-              "req": false,
-              "short": "Title of the movie where the whoa was said",
-              "type": "`$STRING`"
+            "movie": {
+              "a": true,
+              "h": "Movie",
+              "n": "movie",
+              "r": false,
+              "sh": "Title of the movie where the whoa was said",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "movie_duration",
-              "req": false,
-              "short": "Total duration of the movie",
-              "type": "`$STRING`"
+            "movie_duration": {
+              "a": true,
+              "h": "Movie Duration",
+              "n": "movie_duration",
+              "r": false,
+              "sh": "Total duration of the movie",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "poster",
-              "req": false,
-              "short": "URL to movie poster image",
-              "type": "`$STRING`"
+            "poster": {
+              "a": true,
+              "h": "Poster",
+              "n": "poster",
+              "r": false,
+              "sh": "URL to movie poster image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "timestamp",
-              "req": false,
-              "short": "Timestamp when the whoa occurs in the movie",
-              "type": "`$STRING`"
+            "timestamp": {
+              "a": true,
+              "h": "Timestamp",
+              "n": "timestamp",
+              "r": false,
+              "sh": "Timestamp when the whoa occurs in the movie",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "total_whoas_in_movie",
-              "req": false,
-              "short": "Total number of whoas in the movie",
-              "type": "`$INTEGER`"
+            "total_whoas_in_movie": {
+              "a": true,
+              "h": "Total Whoas In Movie",
+              "n": "total_whoas_in_movie",
+              "r": false,
+              "sh": "Total number of whoas in the movie",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "video",
-              "req": false,
-              "type": "`$OBJECT`"
+            "video": {
+              "a": true,
+              "h": "Video",
+              "n": "video",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "whoa_in_movie",
-              "req": false,
-              "short": "Representation of whoa count in the movie (e.g., '1 of 5')",
-              "type": "`$STRING`"
+            "whoa_in_movie": {
+              "a": true,
+              "h": "Whoa In Movie",
+              "n": "whoa_in_movie",
+              "r": false,
+              "sh": "Representation of whoa count in the movie (e.g., '1 of 5')",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "year",
-              "req": false,
-              "short": "Year the movie was released",
-              "type": "`$INTEGER`"
+            "year": {
+              "a": true,
+              "h": "Year",
+              "n": "year",
+              "r": false,
+              "sh": "Year the movie was released",
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -168,24 +252,24 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /whoas",
-                    "json": "{\"operationId\":\"getAllWhoas\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"audio\":{\"description\":\"URL to audio clip of the whoa\",\"type\":\"string\"},\"character\":{\"description\":\"Character name that Keanu Reeves played\",\"type\":\"string\"},\"current_whoa_in_movie\":{\"description\":\"The number of this whoa within the movie\",\"type\":\"integer\"},\"director\":{\"description\":\"Director of the movie\",\"type\":\"string\"},\"full_line\":{\"description\":\"The full line of dialogue containing the whoa\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the whoa instance\",\"type\":\"integer\"},\"movie\":{\"description\":\"Title of the movie where the whoa was said\",\"type\":\"string\"},\"movie_duration\":{\"description\":\"Total duration of the movie\",\"type\":\"string\"},\"poster\":{\"description\":\"URL to movie poster image\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp when the whoa occurs in the movie\",\"type\":\"string\"},\"total_whoas_in_movie\":{\"description\":\"Total number of whoas in the movie\",\"type\":\"integer\"},\"video\":{\"properties\":{\"1080p\":{\"description\":\"URL to 1080p video clip\",\"type\":\"string\"},\"360p\":{\"description\":\"URL to 360p video clip\",\"type\":\"string\"},\"480p\":{\"description\":\"URL to 480p video clip\",\"type\":\"string\"},\"720p\":{\"description\":\"URL to 720p video clip\",\"type\":\"string\"}},\"type\":\"object\"},\"whoa_in_movie\":{\"description\":\"Representation of whoa count in the movie (e.g., '1 of 5')\",\"type\":\"string\"},\"year\":{\"description\":\"Year the movie was released\",\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/whoas",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/whoas",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "whoas"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -197,29 +281,34 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /whoas/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /whoas/{id}",
-                    "json": "{\"operationId\":\"getWhoaById\",\"parameters\":[{\"description\":\"The ID of the whoa instance\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"audio\":{\"description\":\"URL to audio clip of the whoa\",\"type\":\"string\"},\"character\":{\"description\":\"Character name that Keanu Reeves played\",\"type\":\"string\"},\"current_whoa_in_movie\":{\"description\":\"The number of this whoa within the movie\",\"type\":\"integer\"},\"director\":{\"description\":\"Director of the movie\",\"type\":\"string\"},\"full_line\":{\"description\":\"The full line of dialogue containing the whoa\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the whoa instance\",\"type\":\"integer\"},\"movie\":{\"description\":\"Title of the movie where the whoa was said\",\"type\":\"string\"},\"movie_duration\":{\"description\":\"Total duration of the movie\",\"type\":\"string\"},\"poster\":{\"description\":\"URL to movie poster image\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp when the whoa occurs in the movie\",\"type\":\"string\"},\"total_whoas_in_movie\":{\"description\":\"Total number of whoas in the movie\",\"type\":\"integer\"},\"video\":{\"properties\":{\"1080p\":{\"description\":\"URL to 1080p video clip\",\"type\":\"string\"},\"360p\":{\"description\":\"URL to 360p video clip\",\"type\":\"string\"},\"480p\":{\"description\":\"URL to 480p video clip\",\"type\":\"string\"},\"720p\":{\"description\":\"URL to 720p video clip\",\"type\":\"string\"}},\"type\":\"object\"},\"whoa_in_movie\":{\"description\":\"Representation of whoa count in the movie (e.g., '1 of 5')\",\"type\":\"string\"},\"year\":{\"description\":\"Year the movie was released\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"Whoa not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/whoas/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/whoas/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "whoas"
                     },
@@ -227,29 +316,27 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.video`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /whoas/random",
-                    "json": "{\"operationId\":\"getRandomWhoa\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"audio\":{\"description\":\"URL to audio clip of the whoa\",\"type\":\"string\"},\"character\":{\"description\":\"Character name that Keanu Reeves played\",\"type\":\"string\"},\"current_whoa_in_movie\":{\"description\":\"The number of this whoa within the movie\",\"type\":\"integer\"},\"director\":{\"description\":\"Director of the movie\",\"type\":\"string\"},\"full_line\":{\"description\":\"The full line of dialogue containing the whoa\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the whoa instance\",\"type\":\"integer\"},\"movie\":{\"description\":\"Title of the movie where the whoa was said\",\"type\":\"string\"},\"movie_duration\":{\"description\":\"Total duration of the movie\",\"type\":\"string\"},\"poster\":{\"description\":\"URL to movie poster image\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp when the whoa occurs in the movie\",\"type\":\"string\"},\"total_whoas_in_movie\":{\"description\":\"Total number of whoas in the movie\",\"type\":\"integer\"},\"video\":{\"properties\":{\"1080p\":{\"description\":\"URL to 1080p video clip\",\"type\":\"string\"},\"360p\":{\"description\":\"URL to 360p video clip\",\"type\":\"string\"},\"480p\":{\"description\":\"URL to 480p video clip\",\"type\":\"string\"},\"720p\":{\"description\":\"URL to 720p video clip\",\"type\":\"string\"}},\"type\":\"object\"},\"whoa_in_movie\":{\"description\":\"Representation of whoa count in the movie (e.g., '1 of 5')\",\"type\":\"string\"},\"year\":{\"description\":\"Year the movie was released\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/whoas/random",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/whoas/random",
+                  "q": {
+                    "$action": "random"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "whoas"
                     },
@@ -257,10 +344,7 @@
                       "lit": "random"
                     }
                   ],
-                  "select": {
-                    "$action": "random"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.video`"
                   }
@@ -689,13 +773,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -705,17 +789,17 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "whoa_ref01",
                 "srcdatavar": "whoa_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

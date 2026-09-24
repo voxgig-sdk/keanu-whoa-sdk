@@ -43,7 +43,7 @@ local whoas, err = client:Whoa():list()
 if err then error(err) end
 
 for _, item in ipairs(whoas) do
-  print(item["id"], item["1080p"])
+  print(item["id"])
 end
 ```
 

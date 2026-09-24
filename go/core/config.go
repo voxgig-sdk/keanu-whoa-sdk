@@ -91,92 +91,110 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "1080p",
-						"short": "URL to 1080p video clip",
+						"title": "1080p",
 						"type": "`$STRING`",
+						"short": "URL to 1080p video clip",
 					},
 					map[string]any{
 						"name": "360p",
-						"short": "URL to 360p video clip",
+						"title": "360p",
 						"type": "`$STRING`",
+						"short": "URL to 360p video clip",
 					},
 					map[string]any{
 						"name": "480p",
-						"short": "URL to 480p video clip",
+						"title": "480p",
 						"type": "`$STRING`",
+						"short": "URL to 480p video clip",
 					},
 					map[string]any{
 						"name": "720p",
-						"short": "URL to 720p video clip",
+						"title": "720p",
 						"type": "`$STRING`",
+						"short": "URL to 720p video clip",
 					},
 					map[string]any{
 						"name": "audio",
-						"short": "URL to audio clip of the whoa",
+						"title": "Audio",
 						"type": "`$STRING`",
+						"short": "URL to audio clip of the whoa",
 					},
 					map[string]any{
 						"name": "character",
-						"short": "Character name that Keanu Reeves played",
+						"title": "Character",
 						"type": "`$STRING`",
+						"short": "Character name that Keanu Reeves played",
 					},
 					map[string]any{
 						"name": "current_whoa_in_movie",
-						"short": "The number of this whoa within the movie",
+						"title": "Current Whoa In Movie",
 						"type": "`$INTEGER`",
+						"short": "The number of this whoa within the movie",
 					},
 					map[string]any{
 						"name": "director",
-						"short": "Director of the movie",
+						"title": "Director",
 						"type": "`$STRING`",
+						"short": "Director of the movie",
 					},
 					map[string]any{
 						"name": "full_line",
-						"short": "The full line of dialogue containing the whoa",
+						"title": "Full Line",
 						"type": "`$STRING`",
+						"short": "The full line of dialogue containing the whoa",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the whoa instance",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the whoa instance",
 					},
 					map[string]any{
 						"name": "movie",
-						"short": "Title of the movie where the whoa was said",
+						"title": "Movie",
 						"type": "`$STRING`",
+						"short": "Title of the movie where the whoa was said",
 					},
 					map[string]any{
 						"name": "movie_duration",
-						"short": "Total duration of the movie",
+						"title": "Movie Duration",
 						"type": "`$STRING`",
+						"short": "Total duration of the movie",
 					},
 					map[string]any{
 						"name": "poster",
-						"short": "URL to movie poster image",
+						"title": "Poster",
 						"type": "`$STRING`",
+						"short": "URL to movie poster image",
 					},
 					map[string]any{
 						"name": "timestamp",
-						"short": "Timestamp when the whoa occurs in the movie",
+						"title": "Timestamp",
 						"type": "`$STRING`",
+						"short": "Timestamp when the whoa occurs in the movie",
 					},
 					map[string]any{
 						"name": "total_whoas_in_movie",
-						"short": "Total number of whoas in the movie",
+						"title": "Total Whoas In Movie",
 						"type": "`$INTEGER`",
+						"short": "Total number of whoas in the movie",
 					},
 					map[string]any{
 						"name": "video",
+						"title": "Video",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "whoa_in_movie",
-						"short": "Representation of whoa count in the movie (e.g., '1 of 5')",
+						"title": "Whoa In Movie",
 						"type": "`$STRING`",
+						"short": "Representation of whoa count in the movie (e.g., '1 of 5')",
 					},
 					map[string]any{
 						"name": "year",
-						"short": "Year the movie was released",
+						"title": "Year",
 						"type": "`$INTEGER`",
+						"short": "Year the movie was released",
 					},
 				},
 				"id": map[string]any{
@@ -190,7 +208,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/whoas",
@@ -199,14 +216,16 @@ func MakeConfig() map[string]any {
 										"lit": "whoas",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"whoas",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"whoas",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -215,17 +234,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/whoas/{id}",
@@ -237,22 +245,33 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
+								"parts": []any{
+									"whoas",
+									"{id}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.video`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"id",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.video`",
-								},
-								"parts": []any{
-									"whoas",
-									"{id}",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/whoas/random",
@@ -264,16 +283,18 @@ func MakeConfig() map[string]any {
 										"lit": "random",
 									},
 								},
-								"select": map[string]any{
-									"$action": "random",
+								"parts": []any{
+									"whoas",
+									"random",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.video`",
 								},
-								"parts": []any{
-									"whoas",
-									"random",
+								"args": map[string]any{},
+								"select": map[string]any{
+									"$action": "random",
 								},
 							},
 						},

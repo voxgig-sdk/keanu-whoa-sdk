@@ -99,92 +99,110 @@ module KeanuWhoaConfig
           "fields" => [
             {
               "name" => "1080p",
-              "short" => "URL to 1080p video clip",
+              "title" => "1080p",
               "type" => "`$STRING`",
+              "short" => "URL to 1080p video clip",
             },
             {
               "name" => "360p",
-              "short" => "URL to 360p video clip",
+              "title" => "360p",
               "type" => "`$STRING`",
+              "short" => "URL to 360p video clip",
             },
             {
               "name" => "480p",
-              "short" => "URL to 480p video clip",
+              "title" => "480p",
               "type" => "`$STRING`",
+              "short" => "URL to 480p video clip",
             },
             {
               "name" => "720p",
-              "short" => "URL to 720p video clip",
+              "title" => "720p",
               "type" => "`$STRING`",
+              "short" => "URL to 720p video clip",
             },
             {
               "name" => "audio",
-              "short" => "URL to audio clip of the whoa",
+              "title" => "Audio",
               "type" => "`$STRING`",
+              "short" => "URL to audio clip of the whoa",
             },
             {
               "name" => "character",
-              "short" => "Character name that Keanu Reeves played",
+              "title" => "Character",
               "type" => "`$STRING`",
+              "short" => "Character name that Keanu Reeves played",
             },
             {
               "name" => "current_whoa_in_movie",
-              "short" => "The number of this whoa within the movie",
+              "title" => "Current Whoa In Movie",
               "type" => "`$INTEGER`",
+              "short" => "The number of this whoa within the movie",
             },
             {
               "name" => "director",
-              "short" => "Director of the movie",
+              "title" => "Director",
               "type" => "`$STRING`",
+              "short" => "Director of the movie",
             },
             {
               "name" => "full_line",
-              "short" => "The full line of dialogue containing the whoa",
+              "title" => "Full Line",
               "type" => "`$STRING`",
+              "short" => "The full line of dialogue containing the whoa",
             },
             {
               "name" => "id",
-              "short" => "Unique identifier for the whoa instance",
+              "title" => "Id",
               "type" => "`$INTEGER`",
+              "short" => "Unique identifier for the whoa instance",
             },
             {
               "name" => "movie",
-              "short" => "Title of the movie where the whoa was said",
+              "title" => "Movie",
               "type" => "`$STRING`",
+              "short" => "Title of the movie where the whoa was said",
             },
             {
               "name" => "movie_duration",
-              "short" => "Total duration of the movie",
+              "title" => "Movie Duration",
               "type" => "`$STRING`",
+              "short" => "Total duration of the movie",
             },
             {
               "name" => "poster",
-              "short" => "URL to movie poster image",
+              "title" => "Poster",
               "type" => "`$STRING`",
+              "short" => "URL to movie poster image",
             },
             {
               "name" => "timestamp",
-              "short" => "Timestamp when the whoa occurs in the movie",
+              "title" => "Timestamp",
               "type" => "`$STRING`",
+              "short" => "Timestamp when the whoa occurs in the movie",
             },
             {
               "name" => "total_whoas_in_movie",
-              "short" => "Total number of whoas in the movie",
+              "title" => "Total Whoas In Movie",
               "type" => "`$INTEGER`",
+              "short" => "Total number of whoas in the movie",
             },
             {
               "name" => "video",
+              "title" => "Video",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "whoa_in_movie",
-              "short" => "Representation of whoa count in the movie (e.g., '1 of 5')",
+              "title" => "Whoa In Movie",
               "type" => "`$STRING`",
+              "short" => "Representation of whoa count in the movie (e.g., '1 of 5')",
             },
             {
               "name" => "year",
-              "short" => "Year the movie was released",
+              "title" => "Year",
               "type" => "`$INTEGER`",
+              "short" => "Year the movie was released",
             },
           ],
           "id" => {
@@ -198,7 +216,6 @@ module KeanuWhoaConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/whoas",
@@ -207,14 +224,16 @@ module KeanuWhoaConfig
                       "lit" => "whoas",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "whoas",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [
-                    "whoas",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -223,17 +242,6 @@ module KeanuWhoaConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "kind" => "param",
-                        "name" => "id",
-                        "orig" => "id",
-                        "reqd" => true,
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/whoas/{id}",
@@ -245,22 +253,33 @@ module KeanuWhoaConfig
                       "var" => "id",
                     },
                   ],
+                  "parts" => [
+                    "whoas",
+                    "{id}",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.video`",
+                  },
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "id",
+                        "orig" => "id",
+                        "type" => "`$INTEGER`",
+                        "kind" => "param",
+                        "reqd" => true,
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "id",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.video`",
-                  },
-                  "parts" => [
-                    "whoas",
-                    "{id}",
-                  ],
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/whoas/random",
@@ -272,17 +291,19 @@ module KeanuWhoaConfig
                       "lit" => "random",
                     },
                   ],
-                  "select" => {
-                    "$action" => "random",
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.video`",
-                  },
                   "parts" => [
                     "whoas",
                     "random",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.video`",
+                  },
+                  "args" => {},
+                  "select" => {
+                    "$action" => "random",
+                  },
                 },
               ],
             },

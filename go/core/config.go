@@ -90,30 +90,6 @@ func MakeConfig() map[string]any {
 			"whoa": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "1080p",
-						"title": "1080p",
-						"type": "`$STRING`",
-						"short": "URL to 1080p video clip",
-					},
-					map[string]any{
-						"name": "360p",
-						"title": "360p",
-						"type": "`$STRING`",
-						"short": "URL to 360p video clip",
-					},
-					map[string]any{
-						"name": "480p",
-						"title": "480p",
-						"type": "`$STRING`",
-						"short": "URL to 480p video clip",
-					},
-					map[string]any{
-						"name": "720p",
-						"title": "720p",
-						"type": "`$STRING`",
-						"short": "URL to 720p video clip",
-					},
-					map[string]any{
 						"name": "audio",
 						"title": "Audio",
 						"type": "`$STRING`",
@@ -252,7 +228,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.video`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -290,7 +266,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.video`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{

@@ -5,34 +5,6 @@ main: kit: entity: whoa: {
   alias: field: {}
 
   fields: {
-    "1080p": {
-      h: "1080p"
-      n: "1080p"
-      r: false
-      sh: "URL to 1080p video clip"
-      t: "`$STRING`"
-    }
-    "360p": {
-      h: "360p"
-      n: "360p"
-      r: false
-      sh: "URL to 360p video clip"
-      t: "`$STRING`"
-    }
-    "480p": {
-      h: "480p"
-      n: "480p"
-      r: false
-      sh: "URL to 480p video clip"
-      t: "`$STRING`"
-    }
-    "720p": {
-      h: "720p"
-      n: "720p"
-      r: false
-      sh: "URL to 720p video clip"
-      t: "`$STRING`"
-    }
     audio: {
       h: "Audio"
       n: "audio"
@@ -199,7 +171,7 @@ main: kit: entity: whoa: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.video`"
+            res: "`body`"
           }
         }
         {
@@ -223,7 +195,7 @@ main: kit: entity: whoa: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.video`"
+            res: "`body`"
           }
         }
       ]

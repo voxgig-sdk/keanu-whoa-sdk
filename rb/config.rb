@@ -98,30 +98,6 @@ module KeanuWhoaConfig
         "whoa" => {
           "fields" => [
             {
-              "name" => "1080p",
-              "title" => "1080p",
-              "type" => "`$STRING`",
-              "short" => "URL to 1080p video clip",
-            },
-            {
-              "name" => "360p",
-              "title" => "360p",
-              "type" => "`$STRING`",
-              "short" => "URL to 360p video clip",
-            },
-            {
-              "name" => "480p",
-              "title" => "480p",
-              "type" => "`$STRING`",
-              "short" => "URL to 480p video clip",
-            },
-            {
-              "name" => "720p",
-              "title" => "720p",
-              "type" => "`$STRING`",
-              "short" => "URL to 720p video clip",
-            },
-            {
               "name" => "audio",
               "title" => "Audio",
               "type" => "`$STRING`",
@@ -260,7 +236,7 @@ module KeanuWhoaConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.video`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -298,7 +274,7 @@ module KeanuWhoaConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.video`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {

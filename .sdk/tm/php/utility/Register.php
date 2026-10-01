@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 KeanuWhoaUtility::setRegistrar(function (KeanuWhoaUtility $u): void {
     $u->clean = [KeanuWhoaClean::class, 'call'];
+    $u->clean_add = [KeanuWhoaClean::class, 'add'];
+    $u->clean_explain = [KeanuWhoaDone::class, 'clean_explain'];
     $u->done = [KeanuWhoaDone::class, 'call'];
     $u->make_error = [KeanuWhoaMakeError::class, 'call'];
     $u->feature_add = [KeanuWhoaFeatureAdd::class, 'call'];

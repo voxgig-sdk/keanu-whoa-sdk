@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/keanu-whoa-sdk/releases](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/keanu-whoa-sdk
+composer config repositories.keanu-whoa-sdk path ./keanu-whoa-sdk/php
+composer require voxgig-sdk/keanu-whoa-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
@@ -39,7 +44,7 @@ try {
     $whoas = $client->Whoa()->list();
     foreach ($whoas as $record) {
         $item = $record->data_get();
-        echo $item["id"] . " " . $item["1080p"] . "\n";
+        echo $item["id"] . " " . $item["audio"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -264,10 +269,6 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `1080p` | URL to 1080p video clip |
-| `360p` | URL to 360p video clip |
-| `480p` | URL to 480p video clip |
-| `720p` | URL to 720p video clip |
 | `audio` | URL to audio clip of the whoa |
 | `character` | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | The number of this whoa within the movie |
@@ -307,10 +308,6 @@ Create an instance: `$whoa = $client->Whoa();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `1080p` | `string` | URL to 1080p video clip |
-| `360p` | `string` | URL to 360p video clip |
-| `480p` | `string` | URL to 480p video clip |
-| `720p` | `string` | URL to 720p video clip |
 | `audio` | `string` | URL to audio clip of the whoa |
 | `character` | `string` | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | `int` | The number of this whoa within the movie |

@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 KeanuWhoaUtility.registrar = ->(u) {
   u.clean = KeanuWhoaUtilities::Clean
+  u.clean_add = KeanuWhoaUtilities::CleanAdd
+  u.clean_explain = KeanuWhoaUtilities::CleanExplain
   u.done = KeanuWhoaUtilities::Done
   u.make_error = KeanuWhoaUtilities::MakeError
   u.feature_add = KeanuWhoaUtilities::FeatureAdd

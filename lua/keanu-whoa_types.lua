@@ -7,10 +7,6 @@
 -- edit by hand.
 
 ---@class Whoa
----@field ["1080p"]? string
----@field ["360p"]? string
----@field ["480p"]? string
----@field ["720p"]? string
 ---@field audio? string
 ---@field character? string
 ---@field current_whoa_in_movie? number
@@ -30,10 +26,6 @@
 ---@field id number
 
 ---@class WhoaListMatch
----@field ["1080p"]? string
----@field ["360p"]? string
----@field ["480p"]? string
----@field ["720p"]? string
 ---@field audio? string
 ---@field character? string
 ---@field current_whoa_in_movie? number

@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/keanu-whoa-sdk/releases](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/keanu-whoa-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-keanu-whoa-sdk", path: "./keanu-whoa-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
@@ -37,7 +46,7 @@ begin
   # list returns an Array of Whoa records — iterate directly.
   whoas = client.Whoa.list
   whoas.each do |item|
-    puts "#{item["id"]} #{item["1080p"]}"
+    puts "#{item["id"]} #{item["audio"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -253,10 +262,6 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `1080p` | URL to 1080p video clip |
-| `360p` | URL to 360p video clip |
-| `480p` | URL to 480p video clip |
-| `720p` | URL to 720p video clip |
 | `audio` | URL to audio clip of the whoa |
 | `character` | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | The number of this whoa within the movie |
@@ -296,10 +301,6 @@ Create an instance: `whoa = client.Whoa`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `1080p` | `String` | URL to 1080p video clip |
-| `360p` | `String` | URL to 360p video clip |
-| `480p` | `String` | URL to 480p video clip |
-| `720p` | `String` | URL to 720p video clip |
 | `audio` | `String` | URL to audio clip of the whoa |
 | `character` | `String` | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | `Integer` | The number of this whoa within the movie |

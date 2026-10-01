@@ -269,10 +269,6 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"1080p"` | URL to 1080p video clip |
-| `"360p"` | URL to 360p video clip |
-| `"480p"` | URL to 480p video clip |
-| `"720p"` | URL to 720p video clip |
 | `"audio"` | URL to audio clip of the whoa |
 | `"character"` | Character name that Keanu Reeves played |
 | `"current_whoa_in_movie"` | The number of this whoa within the movie |
@@ -312,10 +308,6 @@ Create an instance: `whoa := client.Whoa(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `1080p` | `string` | URL to 1080p video clip |
-| `360p` | `string` | URL to 360p video clip |
-| `480p` | `string` | URL to 480p video clip |
-| `720p` | `string` | URL to 720p video clip |
 | `audio` | `string` | URL to audio clip of the whoa |
 | `character` | `string` | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | `int` | The number of this whoa within the movie |

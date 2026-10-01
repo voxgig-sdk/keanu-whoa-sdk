@@ -256,10 +256,6 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `1080p` | URL to 1080p video clip |
-| `360p` | URL to 360p video clip |
-| `480p` | URL to 480p video clip |
-| `720p` | URL to 720p video clip |
 | `audio` | URL to audio clip of the whoa |
 | `character` | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | The number of this whoa within the movie |
@@ -299,10 +295,6 @@ Create an instance: `whoa = client.Whoa()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `1080p` | `str` | URL to 1080p video clip |
-| `360p` | `str` | URL to 360p video clip |
-| `480p` | `str` | URL to 480p video clip |
-| `720p` | `str` | URL to 720p video clip |
 | `audio` | `str` | URL to audio clip of the whoa |
 | `character` | `str` | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | `int` | The number of this whoa within the movie |

@@ -20,11 +20,11 @@ SDK operations: `list`, `load`.
 
 Key fields to recognise:
 
-- `1080p`: URL to 1080p video clip
-- `360p`: URL to 360p video clip
-- `480p`: URL to 480p video clip
-- `720p`: URL to 720p video clip
 - `audio`: URL to audio clip of the whoa
+- `character`: Character name that Keanu Reeves played
+- `current_whoa_in_movie`: The number of this whoa within the movie
+- `director`: Director of the movie
+- `full_line`: The full line of dialogue containing the whoa
 
 ### Route map
 

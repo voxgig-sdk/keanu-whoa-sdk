@@ -23,10 +23,6 @@ type WhoaLoadMatch struct {
 
 // WhoaListMatch is the typed request payload for Whoa.ListTyped.
 type WhoaListMatch struct {
-	F1080p *string `json:"1080p,omitempty"`
-	F360p *string `json:"360p,omitempty"`
-	F480p *string `json:"480p,omitempty"`
-	F720p *string `json:"720p,omitempty"`
 	Audio *string `json:"audio,omitempty"`
 	Character *string `json:"character,omitempty"`
 	CurrentWhoaInMovie *int `json:"current_whoa_in_movie,omitempty"`

@@ -15,9 +15,13 @@ predictable and low-friction for both humans and AI agents.
 
 ## Install
 This package is not yet published to npm. Install it from the GitHub
-release tag (`ts/vX.Y.Z`):
+release tag (`ts/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases)), or from a
+clone, which carries the compiled `dist/`:
 
-- Releases: [https://github.com/voxgig-sdk/keanu-whoa-sdk/releases](https://github.com/voxgig-sdk/keanu-whoa-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/keanu-whoa-sdk
+npm install ./keanu-whoa-sdk/ts
+```
 
 
 ## Tutorial: your first API call
@@ -307,10 +311,6 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `1080p` | URL to 1080p video clip |
-| `360p` | URL to 360p video clip |
-| `480p` | URL to 480p video clip |
-| `720p` | URL to 720p video clip |
 | `audio` | URL to audio clip of the whoa |
 | `character` | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | The number of this whoa within the movie |
@@ -350,10 +350,6 @@ Create an instance: `const whoa = client.Whoa()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `1080p` | `string` | URL to 1080p video clip |
-| `360p` | `string` | URL to 360p video clip |
-| `480p` | `string` | URL to 480p video clip |
-| `720p` | `string` | URL to 720p video clip |
 | `audio` | `string` | URL to audio clip of the whoa |
 | `character` | `string` | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | `number` | The number of this whoa within the movie |

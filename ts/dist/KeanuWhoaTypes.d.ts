@@ -1,8 +1,4 @@
 export interface Whoa {
-    "1080p"?: string;
-    "360p"?: string;
-    "480p"?: string;
-    "720p"?: string;
     audio?: string;
     character?: string;
     current_whoa_in_movie?: number;
@@ -24,10 +20,6 @@ export interface WhoaLoadMatch {
     [action: string]: any;
 }
 export interface WhoaListMatch {
-    "1080p"?: string;
-    "360p"?: string;
-    "480p"?: string;
-    "720p"?: string;
     audio?: string;
     character?: string;
     current_whoa_in_movie?: number;

@@ -98,10 +98,6 @@ fmt.Println(whoa.GetName()) // "whoa"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `1080p` | `string` | No | URL to 1080p video clip |
-| `360p` | `string` | No | URL to 360p video clip |
-| `480p` | `string` | No | URL to 480p video clip |
-| `720p` | `string` | No | URL to 720p video clip |
 | `audio` | `string` | No | URL to audio clip of the whoa |
 | `character` | `string` | No | Character name that Keanu Reeves played |
 | `current_whoa_in_movie` | `int` | No | The number of this whoa within the movie |

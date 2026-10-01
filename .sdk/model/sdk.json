@@ -97,38 +97,6 @@
             "field": {}
           },
           "fields": {
-            "1080p": {
-              "a": true,
-              "h": "1080p",
-              "n": "1080p",
-              "r": false,
-              "sh": "URL to 1080p video clip",
-              "t": "`$STRING`"
-            },
-            "360p": {
-              "a": true,
-              "h": "360p",
-              "n": "360p",
-              "r": false,
-              "sh": "URL to 360p video clip",
-              "t": "`$STRING`"
-            },
-            "480p": {
-              "a": true,
-              "h": "480p",
-              "n": "480p",
-              "r": false,
-              "sh": "URL to 480p video clip",
-              "t": "`$STRING`"
-            },
-            "720p": {
-              "a": true,
-              "h": "720p",
-              "n": "720p",
-              "r": false,
-              "sh": "URL to 720p video clip",
-              "t": "`$STRING`"
-            },
             "audio": {
               "a": true,
               "h": "Audio",
@@ -318,7 +286,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.video`"
+                    "res": "`body`"
                   }
                 },
                 {
@@ -346,7 +314,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.video`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -848,7 +816,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

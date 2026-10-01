@@ -6,10 +6,6 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Whoa {
-  "1080p"?: string
-  "360p"?: string
-  "480p"?: string
-  "720p"?: string
   audio?: string
   character?: string
   current_whoa_in_movie?: number
@@ -37,10 +33,6 @@ export interface WhoaLoadMatch {
 }
 
 export interface WhoaListMatch {
-  "1080p"?: string
-  "360p"?: string
-  "480p"?: string
-  "720p"?: string
   audio?: string
   character?: string
   current_whoa_in_movie?: number

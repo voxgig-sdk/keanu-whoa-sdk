@@ -17,7 +17,12 @@ const PLAN: any[] = [
     "args": [],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": [
@@ -35,9 +40,9 @@ const PLAN: any[] = [
         "whoa_in_movie": "x",
         "video": {
           "1080p": "x",
-          "360p": "x",
+          "720p": "x",
           "480p": "x",
-          "720p": "x"
+          "360p": "x"
         },
         "audio": "x",
         "poster": "x"
@@ -60,7 +65,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -77,9 +87,9 @@ const PLAN: any[] = [
       "whoa_in_movie": "x",
       "video": {
         "1080p": "x",
-        "360p": "x",
+        "720p": "x",
         "480p": "x",
-        "720p": "x"
+        "360p": "x"
       },
       "audio": "x",
       "poster": "x"
@@ -96,7 +106,12 @@ const PLAN: any[] = [
     "args": [],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -113,9 +128,9 @@ const PLAN: any[] = [
       "whoa_in_movie": "x",
       "video": {
         "1080p": "x",
-        "360p": "x",
+        "720p": "x",
         "480p": "x",
-        "720p": "x"
+        "360p": "x"
       },
       "audio": "x",
       "poster": "x"

@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "A free JSON API for every &#39;whoa&#39; said by actor Keanu Reeves in his movies.",
+      "Character name that Keanu Reeves played",
+      "Director of the movie",
+      "Production server",
+      "Successful response",
+      "The full line of dialogue containing the whoa",
+      "The number of this whoa within the movie",
+      "URL to audio clip of the whoa"
+    ]
+  }
 }

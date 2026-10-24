@@ -84,9 +84,12 @@ class WhoaEntity extends KeanuWhoaEntityBase_1.KeanuWhoaEntityBase {
         catch (err) {
             // What a hook throws here must not escape the cleaning below.
             try {
-                fres = featureHook(ctx, 'PreUnexpected');
-                if (fres instanceof Promise) {
-                    await fres;
+                // Once per operation: makeError fires it for its own error.
+                if (!ctx.unexpectedFired) {
+                    fres = featureHook(ctx, 'PreUnexpected');
+                    if (fres instanceof Promise) {
+                        await fres;
+                    }
                 }
             }
             catch (hookerr) {
@@ -98,7 +101,7 @@ class WhoaEntity extends KeanuWhoaEntityBase_1.KeanuWhoaEntityBase {
             }
             else {
                 // Off-happy-path (throw disabled): typed as any so the method's
-                // Promise<Whoa> return stays clean under strict null checks.
+                // Promise<WhoaEntity> return stays clean under strict null checks.
                 return undefined;
             }
         }
@@ -171,9 +174,12 @@ class WhoaEntity extends KeanuWhoaEntityBase_1.KeanuWhoaEntityBase {
         catch (err) {
             // What a hook throws here must not escape the cleaning below.
             try {
-                fres = featureHook(ctx, 'PreUnexpected');
-                if (fres instanceof Promise) {
-                    await fres;
+                // Once per operation: makeError fires it for its own error.
+                if (!ctx.unexpectedFired) {
+                    fres = featureHook(ctx, 'PreUnexpected');
+                    if (fres instanceof Promise) {
+                        await fres;
+                    }
                 }
             }
             catch (hookerr) {
@@ -185,7 +191,7 @@ class WhoaEntity extends KeanuWhoaEntityBase_1.KeanuWhoaEntityBase {
             }
             else {
                 // Off-happy-path (throw disabled): typed as any so the method's
-                // Promise<Whoa[]> return stays clean under strict null checks.
+                // Promise<WhoaEntity[]> return stays clean under strict null checks.
                 return undefined;
             }
         }

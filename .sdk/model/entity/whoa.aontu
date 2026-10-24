@@ -122,6 +122,10 @@ main: kit: entity: whoa: {
           }
           m: "GET"
           o: "/whoas"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "whoas"
@@ -161,6 +165,10 @@ main: kit: entity: whoa: {
               "id"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "whoas"
@@ -184,6 +192,10 @@ main: kit: entity: whoa: {
           o: "/whoas/random"
           q: {
             "$action": "random"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
